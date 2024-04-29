@@ -1,14 +1,26 @@
 <template>
   <div>
-    niao
+    <calendar
+      :currentMonth="state.currentMonth"
+      :currentYear="state.currentYear"
+      :startDayOfMonday="state.startDayOfMonday"
+      @changeDate="changeDate"
+    > </calendar>
   </div>
 </template>
 
 <script setup lang="ts">
+import calendar from '@/components/calendar.vue'
 import {reactive} from 'vue'
 
-const props = defineProps({})
-const state = reactive({})
+const state = reactive({
+  currentYear: new Date().getFullYear(),
+  currentMonth: new Date().getMonth(),
+  startDayOfMonday: true
+})
+const changeDate = (dateInfor:dateListItem)=>{
+  console.log(dateInfor,'date');
+}
 </script>
 
 <style lang="scss">
