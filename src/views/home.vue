@@ -1,11 +1,13 @@
 <template>
   <div>
-    <calendar
-      :currentMonth="state.currentMonth"
-      :currentYear="state.currentYear"
-      :startDayOfMonday="state.startDayOfMonday"
-      @changeDate="changeDate"
-    > </calendar>
+    <!--<calendar-->
+    <!--  :currentMonth="state.currentMonth"-->
+    <!--  :currentYear="state.currentYear"-->
+    <!--  :startDayOfMonday="state.startDayOfMonday"-->
+    <!--  @changeDate="changeDate"-->
+    <!--&gt; </calendar>-->
+
+    <xy-test>再见</xy-test>
   </div>
 </template>
 
