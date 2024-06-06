@@ -18,6 +18,10 @@
       <!-- I -->
       <path class="svgLine" d="M420,50 L420,150" stroke="black" stroke-width="2" transform="scale(1.25)"/>
     </svg>
+    <div class="textBox">
+      <p>春风和煦</p>
+      <p class="textLaseP">炎阳似火</p>
+    </div>
   </div>
 </template>
 
@@ -54,6 +58,23 @@ export default defineComponent({
   svg{
     margin-top: 10%;
     cursor: pointer;
+  }
+  .textBox{
+    position: absolute;
+    top: 55%;
+    color: #fff;
+    font: {
+      size: 20px;
+    };
+    //字间距
+    letter-spacing: 15px;
+    //第一个p标签的样式
+    .textLaseP{
+      line-height: 35px;
+      margin-left: 106px;
+    }
+    //不允许选中文字
+    user-select: none;
   }
 }
 </style>
