@@ -1,31 +1,36 @@
 <template>
   <div>
-    <!--<calendar-->
-    <!--  :currentMonth="state.currentMonth"-->
-    <!--  :currentYear="state.currentYear"-->
-    <!--  :startDayOfMonday="state.startDayOfMonday"-->
-    <!--  @changeDate="changeDate"-->
-    <!--&gt; </calendar>-->
-
-    <xy-test>再见</xy-test>
+    <xy-calendar
+      :currentMonth="state.currentMonth"
+      :currentYear="state.currentYear"
+      :startDayOfMonday="state.startDayOfMonday"
+      @changeDate="changeDate"
+    > </xy-calendar>
   </div>
 </template>
 
 <script setup lang="ts">
-import calendar from '@/components/calendar.vue'
 import {reactive} from 'vue'
 import {Tools} from "yanyan-ui"
 
+console.log(console.log(import.meta.env))
 const state = reactive({
   currentYear: new Date().getFullYear(),
   currentMonth: new Date().getMonth(),
-  startDayOfMonday: true
+  startDayOfMonday: true,
+  diaVisible:''
 })
-const date = Tools.setDate(state.currentYear,state.currentMonth+1,1);
+const date = Tools.convertTimeFormat("YYYY-MM-DD", new Date());
 console.log(date,'date');
-const changeDate = (dateInfor:dateListItem)=>{
-  console.log(dateInfor,'date');
+const changeDate = (dateInfo:any)=>{
+  console.log(dateInfo,'date');
 }
+import {useCounterStore}from "@/stores/counter"
+const user = useCounterStore();
+console.log(user.doubleCount,'user');
+user.increment();
+console.log(user.doubleCount,'user');
+console.log(user.count,'user');
 </script>
 
 <style lang="scss">
