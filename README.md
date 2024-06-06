@@ -11,6 +11,7 @@ yarn dev
 yarn build
 ```
 ```sh
+yarn remove yanyan-ui
 yarn add yanyan-ui --registry=https://registry.npmjs.org/
 ```
 

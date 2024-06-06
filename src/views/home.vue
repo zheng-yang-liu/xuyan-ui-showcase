@@ -13,7 +13,7 @@
 import {reactive} from 'vue'
 import {Tools} from "yanyan-ui"
 
-console.log(console.log(import.meta.env))
+console.log(import.meta.env);
 const state = reactive({
   currentYear: new Date().getFullYear(),
   currentMonth: new Date().getMonth(),

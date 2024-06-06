@@ -6,6 +6,6 @@
 
 </style>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/base";
 </style>
