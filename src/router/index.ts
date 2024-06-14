@@ -2,12 +2,12 @@ import { createRouter, createWebHistory ,createWebHashHistory} from 'vue-router'
 
 const routes= [
   {
-    path: '/',
+    path: '/index',
     name: 'index',
     component: () => import('@/views/index.vue')
   },
   {
-    path: '/component',
+    path: '/',
     name: 'component',
     component: () => import('@/views/component.vue'),
     children: [
