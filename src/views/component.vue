@@ -7,12 +7,14 @@
       </template>
       <template #aside>
         <div style="background-color: #3c9cff;width: 100%;height: 100%">
-          <i class="iconfont icon-shouye" @click="dianji"></i>
-          <router-link to="/component/calendar">Child A</router-link>
+          <xy-menu-left
+            :menuItems="menuItems"
+            :expandAll="true"
+          ></xy-menu-left>
         </div>
       </template>
       <template #main>
-        <div style="background-color: green;width: 100%;height: 100%">
+        <div style="background-color:#fafafa;width: 100%;height: 100%">
           <router-view></router-view>
         </div>
       </template>
@@ -21,15 +23,140 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router';
-const direction = ref('horizontal')
-const router = useRouter();
-const dianji = () => {
-  console.log('dianji')
-  router.push('/component/calendar');
-}
-const dddddddd = () => {
-  direction.value = 'horizontal'
-}
+  import { ref } from 'vue'
+  import { useRouter } from 'vue-router';
+  const direction = ref('horizontal')
+  const router = useRouter();
+  const menuItems = [
+    {
+      title: '工具函数',
+      id: '2',
+      icon: 'iconfont icon-donghua',
+      children: [
+        {
+          title: '图标动画',
+          icon: 'iconfont icon-kuaidiyuan-xianxing',
+          id: '2-1',
+          children: [
+            {
+              title: 'svg动画',
+              id: '2-1-1',
+              icon: 'iconfont icon-dian',
+              children: [
+                {
+                  title: 'svg描边',
+                  id: '2-1-1-1',
+                  icon: 'iconfont icon-kuaidiyuan-xianxing',
+                  children: [
+                    {
+                      title: 'svg白的描边',
+                      path: '/svgAnimation',
+                      id: '2-1-1-1-1',
+                    },
+                    {
+                      title: 'svg黑的描边',
+                      path: '/system/user/list',
+                      icon: 'iconfont icon-dian',
+                      id: '2-1-1-1-2',
+                    }
+                  ]
+                },
+                {
+                  title: 'svg填充',
+                  icon: 'iconfont icon-kuaidiyuan-xianxing',
+                  id: '2-1-1-2',
+                  children: [
+                    {
+                      title: 'svg白的填充',
+                      id: '2-1-1-2-1',
+                      icon: 'iconfont icon-dian',
+                      path: '/system/user/list',
+                    },
+                    {
+                      title: 'svg黑的填充',
+                      id: '2-1-1-2-2',
+                      icon: 'iconfont icon-dian',
+                      path: '/system/user/add',
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              title: 'canvas动画',
+              path: '/system/user/add',
+              icon: 'iconfont icon-dian',
+              id: '2-1-2',
+            }
+          ]
+        },
+        {
+          title: '防抖函数',
+          icon: 'iconfont icon-kuaidiyuan-xianxing',
+          id: '2-2',
+          children: [
+            {
+              title: '节流',
+              path: '/system/role/list',
+              icon: 'iconfont icon-dian',
+              id: '2-2-1',
+            },
+            {
+              title: '防抖',
+              path: '/system/role/add',
+              icon: 'iconfont icon-dian',
+              id: '2-2-2',
+            }
+          ]
+        },
+        {
+          title: '深拷贝',
+          path: '/system/menu',
+          id: '2-3',
+          icon: 'iconfont icon-kuaidiyuan-xianxing',
+        },
+
+      ]
+    },
+    {
+      title: '数据类型',
+      id:'3',
+      icon: 'iconfont icon-kuaidiyuan-xianxing',
+      children: [
+        {
+          title: '基本数据类型',
+          id: '3-1',
+          icon: 'iconfont icon-kuaidiyuan-xianxing',
+          children: [
+            {
+              title: 'string',
+              id: '3-1-1',
+              path: '/system/user/list',
+              icon: 'iconfont icon-dian'
+            },
+            {
+              title: 'number',
+              path: '/system/user/add',
+              icon: 'iconfont icon-dian'
+            }
+          ]
+        },
+        {
+          title: 'object',
+          path: '/system/menu',
+          icon: 'iconfont icon-kuaidiyuan-xianxing',
+          id: '3-2',
+        }
+      ]
+    },
+  ]
+
+  const dianji = () => {
+    console.log('dianji')
+    router.push('/component/calendar');
+  }
+  const dddddddd = () => {
+    direction.value = 'horizontal'
+  }
+
 </script>
