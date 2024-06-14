@@ -2,16 +2,19 @@
   <div>
     <xy-classic-page v-model:direction="direction">
       <template #header>
-        <el-button @click="dianji">home</el-button>
+        <el-button>home</el-button>
         <el-button @click="dddddddd">header2</el-button>
       </template>
       <template #aside>
         <div style="background-color: #3c9cff;width: 100%;height: 100%">
-          <i class="iconfont icon-shouye"></i>
+          <i class="iconfont icon-shouye" @click="dianji"></i>
+          <router-link to="/component/calendar">Child A</router-link>
         </div>
       </template>
       <template #main>
-        <div style="background-color: green;width: 100%;height: 100%"></div>
+        <div style="background-color: green;width: 100%;height: 100%">
+          <router-view></router-view>
+        </div>
       </template>
     </xy-classic-page>
   </div>
@@ -19,13 +22,14 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-
+import { useRouter } from 'vue-router';
 const direction = ref('horizontal')
+const router = useRouter();
 const dianji = () => {
-  direction.value = 'vertical'
+  console.log('dianji')
+  router.push('/component/calendar');
 }
 const dddddddd = () => {
   direction.value = 'horizontal'
 }
-
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="homeBox">
-    <svg width="540" height="200" xmlns="http://www.w3.org/2000/svg" @click="toHome">
+    <svg width="540" height="200" xmlns="http://www.w3.org/2000/svg" @click="toComponent">
       <!-- X -->
       <path class="svgLine" d="M10,50 L50,150 M50,50 L10,150" stroke="black" stroke-width="2" transform="scale(1.25)"/>
       <!-- U -->
@@ -28,18 +28,20 @@
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue'
 import {Tools} from "yanyan-ui"
-import{redirectToRoute}from"@/assets/script/public"
+import { useRouter } from 'vue-router';
 export default defineComponent({
   name: "svgAnimation",
   setup(props, context) {
+    const router = useRouter();
+
     onMounted(() => {
       Tools.svgAnimation();
     })
-    const toHome = () => {
-      redirectToRoute("home");
+    const toComponent = () => {
+      router.push('/component');
     }
     return {
-      toHome
+      toComponent
     }
   }
 })
