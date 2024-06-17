@@ -2,8 +2,8 @@
   <div>
     <xy-classic-page v-model:direction="direction">
       <template #header>
-        <el-button @click="dianji">home</el-button>
-        <el-button @click="dddddddd">header2</el-button>
+        <el-button @click="dianji">hom99999e</el-button>
+        <el-button @click="dddddddd">head99999er2</el-button>
       </template>
       <template #aside>
         <div style="background-color: #3c9cff;width: 100%;height: 100%">
@@ -11,7 +11,13 @@
         </div>
       </template>
       <template #main>
-        <div style="background-color: green;width: 100%;height: 100%"></div>
+        <div style="background-color: #ececec;width: 100%;height: 100%">
+          <xy-effect-preview :code="codeText">
+            <template #effect>
+              <el-button>按钮</el-button>
+            </template>
+          </xy-effect-preview>
+        </div>
       </template>
     </xy-classic-page>
   </div>
@@ -27,5 +33,6 @@ const dianji = () => {
 const dddddddd = () => {
   direction.value = 'horizontal'
 }
-
+const codeText =
+`<p></p>`
 </script>
