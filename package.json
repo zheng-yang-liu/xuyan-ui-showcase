@@ -15,9 +15,9 @@
     "axios": "^1.7.2",
     "element-plus": "2.7.4",
     "pinia": "^2.1.7",
-    "vue": "3.4.26",
+    "vue": "^3.4.26",
     "vue-router": "^4.3.0",
-    "yanyan-ui": "^2.0.34"
+    "yanyan-ui": "^2.0.39"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",

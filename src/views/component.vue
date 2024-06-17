@@ -2,23 +2,27 @@
   <div>
     <xy-classic-page v-model:direction="direction">
       <template #header>
-        <el-button @click="dianji">header</el-button>
-        <el-button @click="dddddddd">header2</el-button>
-        <i class="iconfont icon-kuaidiyuan-xianxing"></i>
+        <tabBar></tabBar>
       </template>
       <template #aside>
-        <div style="background-color: #ffffff;width: 100%;height: 100%">
+        <div style="width: 100%;height: 100%">
           <xy-menu-left
             :menuItems="menuItems"
-            :expandAll="false"
-            :defaultStyle="true"
+            :expandAll="true"
+            :defaultStyle="false"
+            :select-style="selectStyle"
           >
           </xy-menu-left>
         </div>
       </template>
       <template #main>
-        <div style="background-color: green;width: 100%;height: 100%">
-
+        <div style="width: 100%;height: 100%">
+          <xy-effect-preview :code="codeText">
+            <template #effect>
+              <el-button @click="dddddddd">按钮</el-button>
+            </template>
+          </xy-effect-preview>
+          <router-view></router-view>
         </div>
       </template>
     </xy-classic-page>
@@ -28,6 +32,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import{Tools} from "yanyan-ui"
+import {useRouter}from "vue-router"
+import tabBar from "@/components/tabBar.vue"
+import hljs from "highlight.js";
 const menuItems = [
   {
     title: '工具函数',
@@ -54,10 +61,12 @@ const menuItems = [
                     title: 'svg白的描边',
                     submenuIndent: '20',
                     id: '2-1-1-1-1',
+                    icon: 'iconfont icon-dian',
+                    path:"/component/calendar"
                   },
                   {
                     title: 'svg黑的描边',
-                    path: '/system/user/list',
+                    path: '/home',
                     icon: 'iconfont icon-dian',
                     id: '2-1-1-1-2',
                   }
@@ -153,12 +162,29 @@ const menuItems = [
   },
 ]
 const direction = ref('horizontal')
+const router = useRouter();
+
 const dianji = () => {
-  direction.value = 'vertical'
+  router.push("/component/calendar")
 }
 const dddddddd = () => {
-  direction.value = 'horizontal'
+  highlightCode()
 }
+const highlightCode = () => {
+  navigator.clipboard.writeText('props.code')
+    .then(() => {
+      Tools.showMsg('success', '代码已复制')
+    })
+    .catch(err => {
+      Tools.showMsg('error', '复制失败'+err)
+    });
+};
+const selectStyle = {
+  backgroundColor: '#ecf5ff',
+  color: '#409eff'
+}
+const codeText =
+`<p></p>`
 </script>
 
 <style scoped lang="scss">

@@ -2,12 +2,12 @@ import { createRouter, createWebHistory ,createWebHashHistory} from 'vue-router'
 
 const routes= [
   {
-    path: '/index',
+    path: '/',
     name: 'index',
     component: () => import('@/views/index.vue')
   },
   {
-    path: '/',
+    path: '/component',
     name: 'component',
     component: () => import('@/views/component.vue'),
     children: [
@@ -17,7 +17,12 @@ const routes= [
         component: () => import('@/views/calendar.vue')
       },
     ]
-  }
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import('@/views/home.vue')
+  },
 ]
 
 const router = createRouter({
