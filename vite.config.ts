@@ -29,7 +29,7 @@ export default ({command, mode}: ConfigEnv) => {
     css:{
       preprocessorOptions:{
         scss: {
-          additionalData: `@import "@/assets/main.scss";`
+          additionalData: `@import "@/assets/style/main.scss";`
         }
       }
     }

@@ -12,7 +12,7 @@
       </template>
       <template #main>
         <div style="background-color: #ececec;width: 100%;height: 100%">
-          <xy-effect-preview :code="codeText">
+          <xy-effect-preview :code="vueComponentString">
             <template #effect>
               <el-button>按钮</el-button>
             </template>
@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-
+import vueComponentString from "@/views/codeTest";
 const direction = ref('horizontal')
 const dianji = () => {
   direction.value = 'vertical'
