@@ -7,19 +7,21 @@
       <template #aside>
         <div style="width: 100%;height: 100%">
           <xy-menu-left
-            :menuItems="menuItems"
             :expandAll="true"
             :defaultStyle="false"
+            :menuItems="menuItems"
             :select-style="selectStyle"
-            :menuLeftStyle="{borderRight:'1px solid #ebeef5'}"
-            startID="b3eda810068053e4189e00c61b000b72"
+            :fillingDefaultIcon="false"
+            :selectFirstItem="true"
           >
           </xy-menu-left>
         </div>
       </template>
       <template #main>
         <div style="width: 100%;height: 100%;padding: 10px;overflow-y: auto;">
-          <router-view></router-view>
+          <div style="padding: 64px 0 48px 64px">
+            <router-view></router-view>
+          </div>
         </div>
       </template>
     </xy-classic-page>
@@ -27,52 +29,48 @@
 </template>
 
 <script lang="ts" setup>
-import vueComponentString from "@/views/codeTest";
 import { ref } from 'vue'
-import{Tools} from "yanyan-ui"
-import {useRouter}from "vue-router"
 import tabBar from "@/components/tabBar.vue"
 const menuItems = [
   {
+    title:'组件基础',
+    id: 'b3eda810068053e4189e00c61b000b72',
+    children:[
+      {
+        title:"安装/使用",
+        id:"5a8a715c27da27f82217078ddf6d3c30",
+        path:"/component/foundation"
+      }
+    ]
+  },
+  {
     title: 'xuyan-ui组件预览',
     id: '63e2e6a19d2b7805d82eb20d8c21f615',
-    icon: 'iconfont icon-donghua',
     children: [
       {
         title: 'xuyan-ui组件预览',
-        id: 'b3eda810068053e4189e00c61b000b72',
+        id: '9bfe52845ec328bbcab94d9565a67495',
         path: '/component/componentPreview',
       }
     ]
   },
-]
-const data = [
   {
-    name: 'name',
-    explain: '名称',
-    type: 'string'
-  },
-  {
-    name: 'age',
-    explain: '年龄',
-    type: [{value:'number'}, {value:'array',complexType:'object[]'}]
-  },
-  {
-    name: 'address',
-    explain: '地址',
-    type: [{value:'address',complexType:"'beijing' | 'shanghai' | 'sichuan' | 'beijing' | 'shanghai' | 'sichuan'"}],
+    title:"图像组件",
+    children:[
+      {
+        title:"图像裁剪",
+        id:"",
+        path:"/component/imgCropping"
+      }
+    ]
   }
 ]
 const direction = ref('horizontal')
-const router = useRouter();
-
-
 
 const selectStyle = {
   backgroundColor: '#ecf5ff',
   color: '#409eff'
 }
-
 </script>
 
 <style scoped lang="scss">

@@ -20,6 +20,16 @@ const routes= [
         path:'componentPreview',
         name:'componentPreview',
         component:()=>import('@/views/component/childComponents/componentPreview.vue')
+      },
+      {
+        path:"foundation",
+        name:"foundation",
+        component:()=>import("@/views/component/childComponents/foundation.vue")
+      },
+      {
+        path:"imgCropping",
+        name:"imgCropping",
+        component:()=>import("@/views/component/childComponents/imgCropping.vue")
       }
     ]
   },

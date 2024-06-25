@@ -38,7 +38,7 @@ export default defineComponent({
       Tools.svgAnimation();
     })
     const toComponent = () => {
-      router.push('/component');
+      router.push('/component/foundation');
     }
     return {
       toComponent
