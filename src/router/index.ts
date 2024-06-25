@@ -12,11 +12,6 @@ const routes= [
     component: () => import('@/views/component/component.vue'),
     children: [
       {
-        path: 'calendar',
-        name: 'calendar',
-        component: () => import('@/views/calendar.vue')
-      },
-      {
         path:'componentPreview',
         name:'componentPreview',
         component:()=>import('@/views/component/childComponents/componentPreview.vue')

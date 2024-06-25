@@ -1,18 +1,17 @@
 <template>
   <div>
-    <xy-classic-page v-model:direction="direction">
+    <xy-classic-page v-model:direction="direction" :asideWidth="220">
       <template #header>
         <tabBar></tabBar>
       </template>
       <template #aside>
-        <div style="width: 100%;height: 100%">
+        <div style="width: 100%;height: 100%;padding: 20px 0 0 20px">
           <xy-menu-left
             :expandAll="true"
             :defaultStyle="false"
             :menuItems="menuItems"
             :select-style="selectStyle"
-            :fillingDefaultIcon="false"
-            :selectFirstItem="true"
+            :initByRouter="true"
           >
           </xy-menu-left>
         </div>
@@ -59,7 +58,7 @@ const menuItems = [
     children:[
       {
         title:"图像裁剪",
-        id:"",
+        id:"c5466b6f5f2a684ddbd9eb9bd16e7e53",
         path:"/component/imgCropping"
       }
     ]
@@ -69,8 +68,10 @@ const direction = ref('horizontal')
 
 const selectStyle = {
   backgroundColor: '#ecf5ff',
-  color: '#409eff'
+  color: '#409eff',
+  borderRadius: '5px',
 }
+
 </script>
 
 <style scoped lang="scss">
