@@ -1,22 +1,23 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction="以下为xuyan-ui的全部组件,点击预览查看详情"
-      page-title="xuyan-ui组件预览"
+      introduction="以下为xuyan-ui组件库的基本使用方法"
+      page-title="使用/安装"
       :catalogue="catalogue"
     >
       <template #install>
-        <xy-code-preview :code="foundationCode.installCode" language="markdown"></xy-code-preview>
+        <xy-code-preview :code="installCode" language="markdown"></xy-code-preview>
       </template>
       <template #fullImport>
-        <xy-code-preview :code="foundationCode.importCode" language="JavaScript"></xy-code-preview>
+        <xy-code-preview :code="importCode" language="JavaScript"></xy-code-preview>
       </template>
     </xy-showcase-page>
   </div>
 </template>
 
 <script setup lang="ts">
-import {foundationCode} from"./codeText"
+import installCode from "./installCode.txt?raw"
+import importCode from "./importCode.txt?raw"
 const catalogue = [
   {
     title:"安装",

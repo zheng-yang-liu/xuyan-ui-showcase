@@ -17,11 +17,11 @@ import{useRouter}from"vue-router"
 const props = defineProps({
   currentIndex:{
     type:Number,
-    default:1
+    default:0
   }
 })
 const tabList = [
-  {name:'指南',path:''},
+  // {name:'指南',path:''},
   {name:'组件',path:'/component'},
   {name:'工具',path:''}
 ]

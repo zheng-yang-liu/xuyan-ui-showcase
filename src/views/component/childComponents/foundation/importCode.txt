@@ -1,0 +1,2 @@
+import xy from "xuyan-ui"
+import"xuyan-ui/assets/iconFont/iconfont.css"

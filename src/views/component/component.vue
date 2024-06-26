@@ -33,7 +33,6 @@ import tabBar from "@/components/tabBar.vue"
 const menuItems = [
   {
     title:'组件基础',
-    id: 'b3eda810068053e4189e00c61b000b72',
     children:[
       {
         title:"安装/使用",
@@ -44,7 +43,6 @@ const menuItems = [
   },
   {
     title: 'xuyan-ui组件预览',
-    id: '63e2e6a19d2b7805d82eb20d8c21f615',
     children: [
       {
         title: 'xuyan-ui组件预览',
@@ -60,6 +58,16 @@ const menuItems = [
         title:"图像裁剪",
         id:"c5466b6f5f2a684ddbd9eb9bd16e7e53",
         path:"/component/imgCropping"
+      }
+    ]
+  },
+  {
+    title:"导航组件",
+    children:[
+      {
+        title:"左侧导航",
+        id:"d0b5ba449b4ba704c33879d6a511558f",
+        path:"/component/menuLeft"
       }
     ]
   }

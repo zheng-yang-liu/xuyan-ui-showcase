@@ -6,79 +6,40 @@
       :catalogue="catalogue"
     >
       <template #basicUsage>
-        <xy-effect-preview :code="croppingCode.basicUsage" >
-          <template #effect>
-            <el-button @click="visible=true">图像裁剪</el-button>
-          </template>
+        <xy-effect-preview :code="basicUsageText" >
+          <basicUsage></basicUsage>
         </xy-effect-preview>
-        <xy-img-cropping
-          v-model:visible="visible"
-          @confirmReturn="confirmReturn"
-        >
-        </xy-img-cropping>
       </template>
       <template #fixedCroppingSize>
-        <xy-effect-preview :code="croppingCode.fixedCroppingSize" >
-          <template #effect>
-            <el-button @click="visibleFixedSize=true">固定尺寸</el-button>
-          </template>
+        <xy-effect-preview :code="fixedCroppingSizeText">
+          <fixedCroppingSize></fixedCroppingSize>
         </xy-effect-preview>
-        <xy-img-cropping
-          title="固定裁剪尺寸"
-          v-model:visible="visibleFixedSize"
-          @confirmReturn="confirmReturn"
-          :previewSizeFixed="true"
-        >
-        </xy-img-cropping>
       </template>
       <template #uploadBase64>
-        <xy-effect-preview :code="croppingCode.uploadBase64" >
-          <template #effect>
-            <el-button @click="visibleUploadBase64=true">上传base64</el-button>
-          </template>
+        <xy-effect-preview :code="uploadNoFileText">
+            <uploadNoFile></uploadNoFile>
         </xy-effect-preview>
-        <xy-img-cropping
-          title="图像裁剪上传base64"
-          v-model:visible="visibleUploadBase64"
-          @confirmReturn="confirmReturn"
-          :uploadParamIsFile="false"
-        >
-        </xy-img-cropping>
       </template>
 
       <template #xyImgCroppingProps>
         <xy-attribute-table :data="propsData"></xy-attribute-table>
       </template>
       <template #xyImgCroppingEvent>
-        <xy-attribute-table :data="eventData" :columns="eventClums"></xy-attribute-table>
+        <xy-attribute-table :data="eventData" :columns-no-default="true"></xy-attribute-table>
       </template>
     </xy-showcase-page>
   </div>
 </template>
 
 <script setup lang="ts">
-import{ref,reactive} from "vue";
-import{croppingCode}from"./codeText"
-const visible = ref(false)
-const visibleFixedSize = ref(false)
-const visibleUploadBase64 = ref(false)
-const eventClums = [
-  {
-    name: '属性名',
-    key: 'name',
-    width: '1fr'
-  },
-  {
-    name: '说明',
-    key: 'explain',
-    width: '2fr'
-  },
-  {
-    name: '类型',
-    key: 'type',
-    width: '1fr'
-  },
-]
+import basicUsage from "./basicUsage.vue"
+import basicUsageText from "./basicUsage.vue?raw"
+import uploadNoFile from "./uploadNoFile.vue"
+import uploadNoFileText from "./uploadNoFile.vue?raw"
+import fixedCroppingSize from "./fixedCroppingSize.vue"
+import fixedCroppingSizeText from "./fixedCroppingSize.vue?raw"
+
+
 const catalogue = [
   {
     title:"基础用法",
@@ -156,10 +117,6 @@ const eventData = [
   }
 ]
 
-const confirmReturn = async(file:File|string)=>{
-  console.log(file);
-  //网络请求
-}
 </script>
 
 <style scoped lang="scss">

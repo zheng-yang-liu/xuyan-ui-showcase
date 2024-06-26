@@ -14,17 +14,22 @@ const routes= [
       {
         path:'componentPreview',
         name:'componentPreview',
-        component:()=>import('@/views/component/childComponents/componentPreview.vue')
+        component:()=>import('@/views/component/childComponents/preview/index.vue')
       },
       {
         path:"foundation",
         name:"foundation",
-        component:()=>import("@/views/component/childComponents/foundation.vue")
+        component:()=>import("@/views/component/childComponents/foundation/index.vue")
       },
       {
         path:"imgCropping",
         name:"imgCropping",
-        component:()=>import("@/views/component/childComponents/imgCropping.vue")
+        component:()=>import("@/views/component/childComponents/imgCropping/index.vue")
+      },
+      {
+        path:"menuLeft",
+        name:"menuLeft",
+        component:()=>import("@/views/component/childComponents/menuLeft/index.vue")
       }
     ]
   },
