@@ -101,22 +101,22 @@ const menuItems = [
     children:[
       {
         title:"代码高亮",
-        id:"f1",
+        id:"d9ce2b1fd65628f60dea5356a9aecfbe",
         path:"/component/codePreview"
       },
       {
         title:"属性列表",
-        id:"f2",
+        id:"2428a53791868251cc30e41b19644f1b",
         path: "/component/attributeTable"
       },
       {
         title:"组件效果展示",
-        id:"f3",
+        id:"11711b4b00f5a71a2ff80e31ea598126",
         path: "/component/effectPreview"
       },
       {
         title:"组件说明页面",
-        id:"f4",
+        id:"b598fcb95d002ceef10cc0eb6263899d",
         path: "/component/showcasePage"
       }
     ]

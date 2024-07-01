@@ -50,6 +50,11 @@ const routes= [
         path:"showcasePage",
         name:"组件说明页面",
         component:()=>import("@/views/component/childComponents/effectDisplayComponent/showcasePage/index.vue")
+      },
+      {
+        path:"tooltip",
+        name:"文字提示",
+        component:()=>import("@/views/component/childComponents/basicComponent/tooltip/index.vue")
       }
     ]
   },
