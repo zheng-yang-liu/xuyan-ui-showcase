@@ -22,7 +22,7 @@
       </template>
 
       <template #xyImgCroppingProps>
-        <xy-attribute-table :data="propsData"></xy-attribute-table>
+        <xy-attribute-table :data="attributesData"></xy-attribute-table>
       </template>
       <template #xyImgCroppingEvent>
         <xy-attribute-table :data="eventData" :columns-no-default="true"></xy-attribute-table>
@@ -71,7 +71,7 @@ const catalogue = [
     ]
   }
 ]
-const propsData = [
+const attributesData = [
   {
     name:"visible",
     explain:"是否显示裁剪框",

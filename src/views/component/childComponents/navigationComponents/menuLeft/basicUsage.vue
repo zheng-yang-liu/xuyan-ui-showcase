@@ -1,15 +1,8 @@
 <template>
-  <xy-menu-left
-    :menuItems="menuItems"
-    :menu-left-style="{height:'200px',backgroundColor: '#f9f9fc',}"
-  >
-    <template #logo>
-      <div class="logo">
-        <img src="@/assets/logo.png">
-        <p>xuyan</p>
-      </div>
-    </template>
-  </xy-menu-left>
+  <div style="height: 200px;background-color: #f9f9fc;display: inline-block">
+    <xy-menu-left :menuItems="menuItems">
+    </xy-menu-left>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -57,22 +50,6 @@ const menuItems = [
 ]
 </script>
 
-<style>
-.logo {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  background-color: #e0f0ff;
-  padding: 0 10px;
-}
-.logo img {
-  width: 20px;
-  height: 20px;
-}
-.logo p {
-  font-size: 20px;
-  margin-left: 6px;
-  color: #409eff;
-}
+<style scoped lang="scss">
+
 </style>

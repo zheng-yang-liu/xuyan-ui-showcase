@@ -1,9 +1,8 @@
 <template>
-  <xy-menu-left
-    :menuItems="menuItems"
-    :menu-left-style="{height:'200px',backgroundColor: '#f9f9fc',}"
-  >
-  </xy-menu-left>
+  <div style="height: 200px;background-color: #f9f9fc;display: inline-block">
+    <xy-menu-left :menuItems="menuItems">
+    </xy-menu-left>
+  </div>
 </template>
 
 <script setup lang="ts">

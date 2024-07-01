@@ -12,24 +12,34 @@ const routes= [
     component: () => import('@/views/component/component.vue'),
     children: [
       {
-        path:'componentPreview',
-        name:'componentPreview',
-        component:()=>import('@/views/component/childComponents/preview/index.vue')
+        path:"installOrUse",
+        name:"安装/使用",
+        component:()=>import("@/views/component/childComponents/componentBasics/installOrUse/index.vue")
       },
       {
-        path:"foundation",
-        name:"foundation",
-        component:()=>import("@/views/component/childComponents/foundation/index.vue")
+        path:'componentPreview',
+        name:'组件预览',
+        component:()=>import('@/views/component/childComponents/componentPreview/preview/index.vue')
       },
       {
         path:"imgCropping",
-        name:"imgCropping",
-        component:()=>import("@/views/component/childComponents/imgCropping/index.vue")
+        name:"图像裁剪",
+        component:()=>import("@/views/component/childComponents/imageComponent/imgCropping/index.vue")
       },
       {
         path:"menuLeft",
-        name:"menuLeft",
-        component:()=>import("@/views/component/childComponents/menuLeft/index.vue")
+        name:"左侧导航",
+        component:()=>import("@/views/component/childComponents/navigationComponents/menuLeft/index.vue")
+      },
+      {
+        path:"codePreview",
+        name:"代码高亮",
+        component:()=>import("@/views/component/childComponents/effectDisplayComponent/codePreview/index.vue")
+      },
+      {
+        path:"attributeTable",
+        name:"属性列表",
+        component:()=>import("@/views/component/childComponents/effectDisplayComponent/attributeTable/index.vue")
       }
     ]
   },

@@ -37,7 +37,7 @@ const menuItems = [
       {
         title:"安装/使用",
         id:"5a8a715c27da27f82217078ddf6d3c30",
-        path:"/component/foundation"
+        path:"/component/installOrUse"
       }
     ]
   },
@@ -68,6 +68,31 @@ const menuItems = [
         title:"左侧导航",
         id:"d0b5ba449b4ba704c33879d6a511558f",
         path:"/component/menuLeft"
+      }
+    ]
+  },
+  {
+    title:"效果展示组件",
+    children:[
+      {
+        title:"代码高亮",
+        id:"f1",
+        path:"/component/codePreview"
+      },
+      {
+        title:"属性列表",
+        id:"f2",
+        path: "/component/attributeTable"
+      },
+      {
+        title:"组件效果展示",
+        id:"f3",
+        path: "/component/effectPreview"
+      },
+      {
+        title:"组件说明页面",
+        id:"f4",
+        path: "/component/showcasePage"
       }
     ]
   }

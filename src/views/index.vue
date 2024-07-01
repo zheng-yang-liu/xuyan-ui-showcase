@@ -38,7 +38,7 @@ export default defineComponent({
       Tools.svgAnimation();
     })
     const toComponent = () => {
-      router.push('/component/foundation');
+      router.push('/component/installOrUse');
     }
     return {
       toComponent
@@ -73,7 +73,7 @@ export default defineComponent({
     //第一个p标签的样式
     .textLaseP{
       line-height: 35px;
-      margin-left: 106px;
+      //margin-left: 106px;
     }
     //不允许选中文字
     user-select: none;
