@@ -40,6 +40,16 @@ const routes= [
         path:"attributeTable",
         name:"属性列表",
         component:()=>import("@/views/component/childComponents/effectDisplayComponent/attributeTable/index.vue")
+      },
+      {
+        path:"effectPreview",
+        name:'组件效果展示',
+        component:()=>import("@/views/component/childComponents/effectDisplayComponent/effectPreview/index.vue")
+      },
+      {
+        path:"showcasePage",
+        name:"组件说明页面",
+        component:()=>import("@/views/component/childComponents/effectDisplayComponent/showcasePage/index.vue")
       }
     ]
   },

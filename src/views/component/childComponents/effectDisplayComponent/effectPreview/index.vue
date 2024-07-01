@@ -1,8 +1,8 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction="对代码进行高亮展示"
-      page-title="代码高亮"
+      introduction="对组件效果进行展示和便捷复制组件样例代码"
+      page-title="组件效果"
       :catalogue="catalogue"
     >
       <template #basicUsage>
@@ -19,23 +19,22 @@
 </template>
 
 <script setup lang="ts">
-import {ref, reactive} from "vue";
 import basicUsage from "./basicUsage.vue"
 import basicUsageText from "./basicUsage.vue?raw"
 
 const catalogue = [
   {
     title: '基础用法',
-    id: '1263bb5639edb534714206741166b6b3',
+    id: 'd2b01604ee737ad73b0385fb6fad77a2',
     slot: 'basicUsage'
   },
   {
     title: 'API',
-    id: '904ae0b2d39452a3128d580066e37017',
+    id: '35559cad6a30dfd794eaf6905ea03ab8',
     children:[
       {
         title:"Attributes",
-        id:"69a03e3918e64cb11fcfccc5a286db22",
+        id:"4581527ae285384b9c054fcb725598bf",
         slot:"Attributes"
       }
     ]
@@ -43,21 +42,26 @@ const catalogue = [
 ]
 const attributesData = [
   {
+    name: 'width',
+    explain: '宽度',
+    type: 'string',
+    default:"100%",
+  },
+  {
     name: 'code',
-    explain: '代码内容',
+    explain: '代码字符串',
     type: 'string',
   },
   {
     name: 'language',
-    explain: '语言',
+    explain: '代码语言',
     type: 'string',
     default:"xml",
   },
   {
-    name: 'round',
-    explain: '是否圆角',
-    type: 'boolean',
-    default:"true",
+    name:"effectHeight",
+    explain:"效果区域minHeight",
+    type:"number",
   }
 
 ]

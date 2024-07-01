@@ -52,6 +52,31 @@ const menuItems = [
     ]
   },
   {
+    title:"基础组件",
+    children:[
+      {
+        title:"按钮",
+        id:"b2c12eae714f3182aae627b3266e8d34",
+        path:"/component/button"
+      },
+      {
+        title:"图标",
+        id:"4a1cae3a510e016563173f77b6a97705",
+        path:"/component/icon"
+      },
+      {
+        title:"文字提示",
+        id:"fca35f82ec1770903d823ca69ce86e2b",
+        path:'/component/tooltip'
+      },
+      {
+        title:"弹框",
+        id:"8731e20e14191224ff1fccfdcc5574b8",
+        path:"/component/dialog"
+      }
+    ]
+  },
+  {
     title:"图像组件",
     children:[
       {

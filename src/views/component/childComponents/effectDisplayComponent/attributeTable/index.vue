@@ -42,21 +42,37 @@ const catalogue = [
 ]
 const attributesData = [
   {
-    name: 'code',
-    explain: '代码内容',
-    type: 'string',
+    name: 'data',
+    explain: '数据',
+    type: [
+      {
+        value: 'Array',
+        complexType: `{
+          name:string,
+          explain:string,
+          type:string | {value:string,complexType?:string}[],
+          default?:string
+        }[]`
+      }
+    ]
   },
   {
-    name: 'language',
-    explain: '语言',
-    type: 'string',
-    default:"xml",
+    name: 'promptTopOffset',
+    explain: '类型提示Tooltip距离顶部的偏移量',
+    type: 'number',
+    default:"5",
   },
   {
-    name: 'round',
-    explain: '是否圆角',
-    type: 'boolean',
-    default:"true",
+    name:"promptXOffset",
+    explain:"类型提示Tooltip距离左侧的偏移量",
+    type:"number",
+    default:"0"
+  },
+  {
+    name:"columnsNoDefault",
+    explain:"是否显示默认值列",
+    type:"boolean",
+    default:"false"
   }
 
 ]

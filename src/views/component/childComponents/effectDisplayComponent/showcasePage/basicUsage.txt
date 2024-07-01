@@ -1,0 +1,111 @@
+<template>
+  <div>
+    <xy-showcase-page
+      introduction="用于对图片的裁剪"
+      page-title="图像裁剪"
+      :catalogue="catalogue"
+    >
+      <template #basicUsage>
+        basicUsage插槽内容
+      </template>
+      <template #fixedCroppingSize>
+        fixedCroppingSize插槽内容
+      </template>
+      <template #uploadBase64>
+        uploadBase64插槽内容
+      </template>
+
+      <template #xyImgCroppingProps>
+        xyImgCroppingProps插槽内容
+      </template>
+      <template #xyImgCroppingEvent>
+        xyImgCroppingEvent插槽内容
+      </template>
+    </xy-showcase-page>
+  </div>
+</template>
+
+<script setup lang="ts">
+
+const catalogue = [
+  {
+    title:"基础用法",
+    id:"26eaff5ae8e63d0a31ea769bf561a3e2",
+    slot:"basicUsage"
+  },
+  {
+    title:"固定裁剪尺寸",
+    id:"1defc5416439f56bb00028410d061489",
+    slot:"fixedCroppingSize"
+  },
+  {
+    title:"上传base64数据",
+    explain:"用于图片数据需要使用base64格式进行数据上传情况",
+    id:"fa1d5d2966d8618459a6c8ec33bfa7cb",
+    slot:"uploadBase64"
+  },
+  {
+    title:"API",
+    children:[
+      {
+        title:"Attributes",
+        slot:'xyImgCroppingProps'
+      },
+      {
+        title:"Events",
+        slot:"xyImgCroppingEvent"
+      }
+    ]
+  }
+]
+const attributesData = [
+  {
+    name:"visible",
+    explain:"是否显示裁剪框",
+    type:"boolean",
+    default:"false"
+  },
+  {
+    name:'title',
+    explain:"弹框标题",
+    type:"string",
+    default:"图像裁剪"
+  },
+  {
+    name:"previewSizeFixed",
+    explain:"是否固定裁剪尺寸",
+    type:"boolean",
+    default:"false"
+  },
+  {
+    name:"uploadParamIsFile",
+    explain:"上传参数是否为file类型",
+    type:"boolean",
+    default:"true"
+  },
+  {
+    name:"closeOnClickModal",
+    explain:"点击外部关闭弹框",
+    type:"boolean",
+    default:"false"
+  },
+  {
+    name:"fileSize",
+    explain:"文件大小限制",
+    type:"number",
+    default:"4"
+  }
+]
+const eventData = [
+  {
+    name:"confirmReturn",
+    explain:"确认裁剪的函数回调",
+    type:[{value:"Function",complexType:"(file:File|string)=>void"}]
+  }
+]
+
+</script>
+
+<style scoped lang="scss">
+
+</style>

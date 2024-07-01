@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts">
-import {ref, reactive} from "vue";
 const data = [
   {
     name: 'name',
@@ -13,29 +12,8 @@ const data = [
   {
     name: 'age',
     explain: '年龄',
-    type:[
-      {
-        value:"object",
-        complexType:`{
-          autoIndent: boolean,
-          indentValue: number,
-          currentIndent: number
-        }`
-      },
-      {
-        value:"object",
-        complexType:`{
-          autoIndent: boolean,
-          indentValue: number,
-          currentIndent: number
-        }`
-      }
-    ],
-    default:`{
-      autoIndent: true,
-      indentValue: 10,
-      currentIndent: 0
-    }`
+    type:'number',
+    default:18
   },
   {
     name: 'address',
@@ -43,9 +21,22 @@ const data = [
     type: [
       {
         value: 'address',
-        complexType: "'beijing' | 'shanghai' | 'sichuan' | 'beijing' | 'shanghai' | 'sichuan'"
+        complexType: "'beijing' | 'shanghai' | 'sichuan' | 'hebei' | 'tianjin' | 'chengdu'"
       }
     ],
+  },
+  {
+    name:"hobby",
+    explain:"爱好",
+    type:[
+      {
+        value:"string",
+      },
+      {
+        value:"Array",
+        complexType:"string[]"
+      }
+    ]
   }
 ]
 </script>

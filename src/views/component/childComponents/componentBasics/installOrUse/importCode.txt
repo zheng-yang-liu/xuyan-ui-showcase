@@ -1,2 +1,4 @@
 import xy from "xuyan-ui"
-import"xuyan-ui/assets/iconFont/iconfont.css"
+import"yanyan-ui/assets/iconFont/iconfont.css"
+
+app.use(xy);
