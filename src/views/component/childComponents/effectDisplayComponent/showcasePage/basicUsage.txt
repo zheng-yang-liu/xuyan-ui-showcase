@@ -84,7 +84,7 @@ const attributesData = [
     default:"true"
   },
   {
-    name:"closeOnClickModal",
+    name:"clickOnExternalClose",
     explain:"点击外部关闭弹框",
     type:"boolean",
     default:"false"

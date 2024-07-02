@@ -97,7 +97,7 @@ const attributesData = [
     default:"true"
   },
   {
-    name:"closeOnClickModal",
+    name:"clickOnExternalClose",
     explain:"点击外部关闭弹框",
     type:"boolean",
     default:"false"
@@ -107,6 +107,12 @@ const attributesData = [
     explain:"文件大小限制",
     type:"number",
     default:"4"
+  },
+  {
+    name:"immediateClose",
+    explain:"是否立即关闭",
+    type:"boolean",
+    default:"false"
   }
 ]
 const eventData = [
