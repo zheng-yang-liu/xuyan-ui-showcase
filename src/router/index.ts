@@ -55,6 +55,16 @@ const routes= [
         path:"tooltip",
         name:"文字提示",
         component:()=>import("@/views/component/childComponents/basicComponent/tooltip/index.vue")
+      },
+      {
+        path:"button",
+        name:"按钮",
+        component:()=>import("@/views/component/childComponents/basicComponent/button/index.vue")
+      },
+      {
+        path:"dialog",
+        name:"弹框",
+        component:()=>import("@/views/component/childComponents/basicComponent/dialog/index.vue")
       }
     ]
   },

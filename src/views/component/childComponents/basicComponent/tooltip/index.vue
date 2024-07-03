@@ -1,8 +1,8 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction=""
-      page-title=""
+      introduction="用于显示某些隐藏的内容或显示hover时的提示信息"
+      page-title="文字提示"
       :catalogue="catalogue"
     >
       <template #basicUsage>

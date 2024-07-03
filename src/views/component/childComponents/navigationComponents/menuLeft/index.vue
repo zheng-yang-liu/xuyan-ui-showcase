@@ -144,7 +144,7 @@ const attributesData = [
     type:[
       {
         value:"object",
-        complexType: "CSSProperties"
+        complexType: "CSSStyleValue"
       }
     ],
   },
@@ -154,7 +154,7 @@ const attributesData = [
     type:[
       {
         value:"object",
-        complexType: "CSSProperties"
+        complexType: "CSSStyleValue"
       }
     ]
   },
@@ -176,7 +176,7 @@ const attributesData = [
     type:[
       {
         value:"object",
-        complexType: "CSSProperties"
+        complexType: "CSSStyleValue"
       }
     ],
   },
@@ -198,7 +198,7 @@ const attributesData = [
     type: [
       {
         value: "object",
-        complexType: "CSSProperties"
+        complexType: "CSSStyleValue"
       }
     ]
   },
@@ -232,7 +232,7 @@ const attributesData = [
     type:[
       {
         value:"object",
-        complexType: "CSSProperties"
+        complexType: "CSSStyleValue"
       }
     ],
   },
@@ -242,7 +242,7 @@ const attributesData = [
     type:[
       {
         value:"object",
-        complexType: "CSSProperties"
+        complexType: "CSSStyleValue"
       }
     ],
   },
