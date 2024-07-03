@@ -1,0 +1,107 @@
+{
+  "id": "4577634",
+  "name": "xuyan-ui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1506296",
+      "name": "添加",
+      "font_class": "tianjia",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "6582362",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "925488",
+      "name": "取消",
+      "font_class": "quxiao",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "7307160",
+      "name": "注意",
+      "font_class": "zhuyi",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "11372665",
+      "name": "复制",
+      "font_class": "fuzhi",
+      "unicode": "e8b0",
+      "unicode_decimal": 59568
+    },
+    {
+      "icon_id": "13133199",
+      "name": "展开",
+      "font_class": "zhankai",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "5262894",
+      "name": "彩色-盒子",
+      "font_class": "cs-hz-1",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "10135299",
+      "name": "svg",
+      "font_class": "svg",
+      "unicode": "e8bf",
+      "unicode_decimal": 59583
+    },
+    {
+      "icon_id": "10194308",
+      "name": "小工具",
+      "font_class": "xiaogongju",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "18175365",
+      "name": "三角符,插入符,右",
+      "font_class": "insert-right-full",
+      "unicode": "ea5d",
+      "unicode_decimal": 59997
+    },
+    {
+      "icon_id": "2471345",
+      "name": "动画",
+      "font_class": "donghua",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "739117",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "1920286",
+      "name": "点",
+      "font_class": "dian",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "1795844",
+      "name": "51快递员-线性",
+      "font_class": "kuaidiyuan-xianxing",
+      "unicode": "e90f",
+      "unicode_decimal": 59663
+    }
+  ]
+}

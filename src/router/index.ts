@@ -65,6 +65,11 @@ const routes= [
         path:"dialog",
         name:"弹框",
         component:()=>import("@/views/component/childComponents/basicComponent/dialog/index.vue")
+      },
+      {
+        path:"icon",
+        name:"图标",
+        component:()=>import("@/views/component/childComponents/basicComponent/icon/index.vue")
       }
     ]
   },
