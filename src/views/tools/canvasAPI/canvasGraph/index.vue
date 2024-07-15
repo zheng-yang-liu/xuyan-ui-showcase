@@ -59,7 +59,7 @@ const catalogue = [
     title:'自定义图形',
     id:"6f367e97d08f62052546a55ba8475d29",
     slot:'customizeGraphics',
-    explain:'自定义图形,通过继承Graph类，编写自定义draw、isInside方法，实现绘制自定义图形'
+    explain:'自定义图形,通过继承Graph类，编写自定义draw、isInside方法，实现绘制自定义图形，本例的椭圆为自定图形'
   },
   {
     title: '工具类',
@@ -140,6 +140,16 @@ const DrawGraphData = [
       {
         value:"Function",
         complexType:`changeGraphColor(graphColor: string): void;`
+      }
+    ]
+  },
+  {
+    name:"downloadCanvas",
+    explain:"下载canvas",
+    type:[
+      {
+        value:"Function",
+        complexType:`downloadCanvas(): void;`
       }
     ]
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="graphBox">
     <div class="tools">
-      背景颜色:<input type="color" v-model="BGcolor" class="colorSelect"/>
+      背景颜色:<input type="color" v-model="BGColor" class="colorSelect"/>
       <template v-for="item in options">
         <div
           class="graphical"
@@ -48,7 +48,7 @@ const options = [
 ]
 let canvas:any = null;
 const graphColor= ref("#e8e6e6");
-const BGcolor= ref("#e8e6e6");
+const BGColor= ref("#191919");
 let graph:any = null;
 
 class Ellipse extends Graph{
@@ -100,7 +100,7 @@ class Ellipse extends Graph{
     return value <= 1;
   }
 }
-watch(()=>BGcolor.value,(newVal)=>{
+watch(()=>BGColor.value,(newVal)=>{
   graph.changeCanvasBG(newVal);
 })
 watch(()=>graphColor.value,(newVal)=>{

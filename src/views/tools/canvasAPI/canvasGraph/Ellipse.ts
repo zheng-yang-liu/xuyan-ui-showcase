@@ -1,6 +1,6 @@
 import {Graph} from "yanyan-ui";
 
-class Ellipse extends Graph{
+export default class Ellipse extends Graph{
   get centerX(){
     return (this.minX + this.maxX) / 2;
   }

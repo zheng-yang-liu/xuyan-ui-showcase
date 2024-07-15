@@ -1,7 +1,7 @@
 <template>
   <div class="graphBox">
     <div class="tools">
-      背景颜色:<input type="color" v-model="BGcolor" class="colorSelect"/>
+      背景颜色:<input type="color" v-model="BGColor" class="colorSelect"/>
       <template v-for="item in options">
         <div
           class="graphical"
@@ -14,6 +14,7 @@
       </template>
 
       <input type="color" v-model="graphColor" class="colorSelect"/>
+      <xy-icon icon="iconfont icon-xiazai" title="下载" @click="downCanvas"></xy-icon>
     </div>
     <canvas ref="canvas"></canvas>
   </div>
@@ -21,7 +22,7 @@
 
 <script lang="ts" setup>
 import {ref,onMounted,watch,onBeforeUnmount} from 'vue';
-import {DrawGraph} from "yanyan-ui";
+import {DrawGraph,Graph} from "yanyan-ui";
 const selectValue = ref('Rectangular');
 const options = [
   {
@@ -39,20 +40,25 @@ const options = [
     label:"三角形",
     icon:"sanjiaoxing"
   }
-
 ]
 let canvas:any = null;
 const graphColor= ref("#e8e6e6");
-const BGcolor= ref("#e8e6e6");
+const BGColor= ref("#191919");
 let graph:any = null;
 
-watch(()=>BGcolor.value,(newVal)=>{
+
+watch(()=>BGColor.value,(newVal)=>{
   graph.changeCanvasBG(newVal);
 })
 watch(()=>graphColor.value,(newVal)=>{
   graph.changeGraphColor(newVal);
 })
-
+watch(()=>selectValue.value,(newVal)=>{
+  graph.setCurrentGraph(newVal);
+})
+const downCanvas = ()=>{
+  graph.downloadCanvas();
+}
 onMounted(()=>{
   const ctx = canvas?.getContext('2d');
   graph = new DrawGraph(canvas,ctx);
