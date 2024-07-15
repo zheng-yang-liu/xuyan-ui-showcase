@@ -6,7 +6,7 @@
     </div>
     <div class="tab">
       <template v-for="(item,index) in tabList">
-        <div :class="{'currentIndex':currentIndex===index}">{{item.name}}</div>
+        <div :class="{'currentIndex':currentIndex===index}" @click="toPath(item)">{{item.name}}</div>
       </template>
     </div>
   </div>
@@ -22,13 +22,16 @@ const props = defineProps({
 })
 const tabList = [
   // {name:'指南',path:''},
-  {name:'组件',path:'/component'},
-  {name:'工具',path:''}
+  {name:'组件',path:'/component/installOrUse'},
+  {name:'工具',path:'/tools/installOrUse'}
 ]
 const router = useRouter()
 
 const goIndex = () => {
   router.push('/')
+}
+const toPath = (item:any) => {
+  router.push(item.path)
 }
 </script>
 

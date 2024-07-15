@@ -269,6 +269,12 @@ const attributesData = [
     explain:"仅展示一个子菜单项",
     type:"boolean",
     default:"true"
+  },
+  {
+    name:"showScrollBar",
+    explain:"是否显示滚动条",
+    type:"boolean",
+    default:"false"
   }
 ]
 const eventData = [

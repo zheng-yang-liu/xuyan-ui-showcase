@@ -78,6 +78,62 @@ const routes= [
     name: 'home',
     component: () => import('@/views/home.vue')
   },
+  {
+    path:"/tools",
+    name:"工具",
+    component:()=>import("@/views/tools/index.vue"),
+    children:[
+      {
+        path:"installOrUse",
+        name:"Tools安装/使用",
+        component:()=>import("@/views/tools/installOrUse/index.vue")
+      },
+      {
+        path:"svgAnimation",
+        name:"SVG动画",
+        component:()=>import("@/views/tools/animationAPI/svgAnimation/index.vue")
+      },
+      {
+        path:'pageAnimation',
+        name:"页面动画",
+        component:()=>import("@/views/tools/animationAPI/pageAnimation/index.vue")
+      },
+      {
+        path:"canvasGraph",
+        name:"canvas绘图",
+        component:()=>import("@/views/tools/canvasAPI/canvasGraph/index.vue")
+      }
+    ]
+  },
+  {
+    path:"/animationPre",
+    name:"动画预览",
+    component:()=>import("@/views/tools/animationAPI/animationPresentation/pageAnimation/index.vue"),
+    children:[
+      {
+        path:"page1",
+        name:"page1",
+        component:()=>import("@/views/tools/animationAPI/animationPresentation/pageAnimation/page1.vue")
+      }
+    ]
+  },
+  {
+    path:"/canvasEffect",
+    name:"canvas效果预览",
+    component:()=>import("@/views/tools/animationAPI/animationPresentation/pageAnimation/index.vue"),
+    children:[
+      {
+        path:"canvasGraph",
+        name:"canvasGraph",
+        component:()=>import("@/views/tools/canvasAPI/Effects/canvasGraph.vue")
+      },
+      {
+        path:"customizeGraphics",
+        name:"自定义图形",
+        component:()=>import("@/views/tools/canvasAPI/Effects/customizeGraphics.vue")
+      }
+    ]
+  }
 ]
 
 const router = createRouter({

@@ -1,0 +1,8 @@
+# NPM
+npm install xuyan-ui
+
+# Yarn
+yarn add xuyan-ui
+
+# pnpm
+pnpm install xuyan-ui

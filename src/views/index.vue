@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue'
-import {Tools} from "yanyan-ui"
+import {AnimationUtils} from "yanyan-ui"
 import { useRouter } from 'vue-router';
 export default defineComponent({
   name: "svgAnimation",
@@ -35,7 +35,7 @@ export default defineComponent({
     const router = useRouter();
 
     onMounted(() => {
-      Tools.svgAnimation();
+      AnimationUtils.svgAnimation();
     })
     const toComponent = () => {
       router.push('/component/installOrUse');
