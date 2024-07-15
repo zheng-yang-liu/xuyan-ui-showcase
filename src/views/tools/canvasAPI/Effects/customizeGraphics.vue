@@ -1,20 +1,20 @@
 <template>
   <div class="graphBox">
     <div class="tools">
-      <el-select
-        v-model="selectValue"
-        placeholder="Select"
-        size="large"
-        style="width: 140px"
-      >
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
+      背景颜色:<input type="color" v-model="BGcolor" class="colorSelect"/>
+      <template v-for="item in options">
+        <div
+          class="graphical"
+          :class="item.value===selectValue?'select':'noSelect'"
+          @click="selectValue=item.value"
+        >
+          <xy-icon :icon="`iconfont icon-${item.icon}`"></xy-icon>
+          <p>{{ item.label }}</p>
+        </div>
+      </template>
+
       <input type="color" v-model="graphColor" class="colorSelect"/>
+      <xy-icon icon="iconfont icon-xiazai" title="下载" @click="downCanvas"></xy-icon>
     </div>
     <canvas ref="canvas"></canvas>
   </div>
@@ -27,85 +27,97 @@ const selectValue = ref('Rectangular');
 const options = [
   {
     value: 'Rectangular',
-    label: '矩形'
+    label: '矩形',
+    icon:"juxing"
   },
   {
     value: 'Circle',
-    label: '圆形'
+    label: '圆形',
+    icon:'yuanxing'
   },
   {
     value:"Triangle",
-    label:"三角形"
+    label:"三角形",
+    icon:"sanjiaoxing"
+  },
+  {
+    value:"Ellipse",
+    label:"椭圆",
+    icon:"ellipse"
   }
 ]
 let canvas:any = null;
 const graphColor= ref("#e8e6e6");
+const BGcolor= ref("#e8e6e6");
 let graph:any = null;
 
-// 三角形
-class Triangle extends Graph{
-  //用于绘制图形
+class Ellipse extends Graph{
+  get centerX(){
+    return (this.minX + this.maxX) / 2;
+  }
+  get centerY(){
+    return (this.minY + this.maxY) / 2;
+  }
+  get radiusX(){
+    return (this.maxX - this.minX) / 2;
+  }
+  get radiusY(){
+    return (this.maxY - this.minY) / 2;
+  }
   draw(){
-    const vertexX = (this.maxX - this.minX) / 2;
-    console.log(this.minX,this.minY,this.maxX,this.maxY)
+    const rotation = 0;  // 椭圆的旋转角度，以弧度表示
+    const startAngle = 0; // 椭圆的起始角度，以弧度表示
+    const endAngle = 2 * Math.PI; // 椭圆的结束角度，以弧度表示
+
+    // 开始绘制路径
     this._ctx.beginPath();
-    this._ctx.moveTo(this.maxX*this._dpi,this.maxY*this._dpi);
-    this._ctx.lineTo((this.minX+vertexX)*this._dpi,this.minY*this._dpi);
-    this._ctx.lineTo(this.minX*this._dpi,this.maxY*this._dpi);
-    this._ctx.lineTo(this.maxX*this._dpi,this.maxY*this._dpi);
+    this._ctx.ellipse(
+      this.centerX*this._dpi, this.centerY*this._dpi,
+      this.radiusX*this._dpi,
+      this.radiusY*this._dpi,
+      rotation,
+      startAngle,
+      endAngle
+    );
     this._ctx.fillStyle = this._color;
     this._ctx.fill();
 
     // 绘制边框
     this._ctx.strokeStyle = "rgba(255,255,255,1)";
     this._ctx.lineWidth = 3;
+
     this._ctx.lineCap = "square";
     this._ctx.stroke();
   }
-  //用于判断是否在图形内
-  isInside(x: number, y: number): boolean {
-    const vertexX = (this.maxX - this.minX) / 2;
-    const A = [this.maxX, this.maxY];
-    const B = [this.minX + vertexX, this.minY];
-    const C = [this.minX, this.maxY];
+  // 判断是否在椭圆内
+  isInside(x:number,y:number):boolean{
+    // 计算椭圆方程的左侧值
+    const normalizedX = (x - this.centerX) / this.radiusX;
+    const normalizedY = (y - this.centerY) / this.radiusY;
+    const value = Math.pow(normalizedX,2) + Math.pow(normalizedY,2);
 
-    // 向量叉积函数
-    const crossProduct = (v1: number[], v2: number[]): number => {
-      return v1[0] * v2[1] - v1[1] * v2[0];
-    };
-
-    // 点到顶点的向量
-    const vectorPA = [A[0] - x, A[1] - y];
-    const vectorPB = [B[0] - x, B[1] - y];
-    const vectorPC = [C[0] - x, C[1] - y];
-
-    // 向量叉积
-    const cross1 = crossProduct(vectorPA, vectorPB);
-    const cross2 = crossProduct(vectorPB, vectorPC);
-    const cross3 = crossProduct(vectorPC, vectorPA);
-
-    // 判断叉积符号是否一致
-    const isSameSign = (a: number, b: number, c: number): boolean => {
-      return (a >= 0 && b >= 0 && c >= 0) || (a <= 0 && b <= 0 && c <= 0);
-    };
-
-    return isSameSign(cross1, cross2, cross3);
+    // 如果值小于或等于1，则点在椭圆内
+    return value <= 1;
   }
-
 }
-
+watch(()=>BGcolor.value,(newVal)=>{
+  graph.changeCanvasBG(newVal);
+})
 watch(()=>graphColor.value,(newVal)=>{
   graph.changeGraphColor(newVal);
 })
 watch(()=>selectValue.value,(newVal)=>{
   graph.setCurrentGraph(newVal);
 })
+const downCanvas = ()=>{
+  graph.downloadCanvas();
+}
 onMounted(()=>{
   const ctx = canvas?.getContext('2d');
   graph = new DrawGraph(canvas,ctx);
   graph.init();
   graph.drawShape();
-  graph.setShape({Triangle:Triangle});
+  graph.setShape({Ellipse:Ellipse});
 })
 //页面销毁
 onBeforeUnmount(()=>{
@@ -130,8 +142,23 @@ onBeforeUnmount(()=>{
     align-items: center;
     justify-content: center;
     .colorSelect{
-      margin-left: 10px;
+      margin: 0 10px;
     }
+  }
+
+  .graphical{
+    text-align: center;
+    cursor: pointer;
+    margin: 0 10px;
+    padding: 5px;
+    p{
+      margin: 0;
+      font-size: 12px;
+    }
+  }
+  .select{
+    border: 1px solid #014da1;
+    border-radius: 5px;
   }
 }
 </style>

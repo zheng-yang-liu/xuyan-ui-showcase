@@ -1,19 +1,18 @@
 <template>
   <div class="graphBox">
     <div class="tools">
-      <el-select
-        v-model="selectValue"
-        placeholder="Select"
-        size="large"
-        style="width: 140px"
-      >
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
+      背景颜色:<input type="color" v-model="BGcolor" class="colorSelect"/>
+      <template v-for="item in options">
+        <div
+          class="graphical"
+          :class="item.value===selectValue?'select':'noSelect'"
+          @click="selectValue=item.value"
+        >
+          <xy-icon :icon="`iconfont icon-${item.icon}`"></xy-icon>
+          <p>{{ item.label }}</p>
+        </div>
+      </template>
+
       <input type="color" v-model="graphColor" class="colorSelect"/>
     </div>
     <canvas ref="canvas"></canvas>
@@ -27,23 +26,33 @@ const selectValue = ref('Rectangular');
 const options = [
   {
     value: 'Rectangular',
-    label: '矩形'
+    label: '矩形',
+    icon:"juxing"
   },
   {
     value: 'Circle',
-    label: '圆形'
+    label: '圆形',
+    icon:'yuanxing'
   },
+  {
+    value:"Triangle",
+    label:"三角形",
+    icon:"sanjiaoxing"
+  }
+
 ]
 let canvas:any = null;
 const graphColor= ref("#e8e6e6");
+const BGcolor= ref("#e8e6e6");
 let graph:any = null;
 
+watch(()=>BGcolor.value,(newVal)=>{
+  graph.changeCanvasBG(newVal);
+})
 watch(()=>graphColor.value,(newVal)=>{
   graph.changeGraphColor(newVal);
 })
-watch(()=>selectValue.value,(newVal)=>{
-  graph.setCurrentGraph(newVal);
-})
+
 onMounted(()=>{
   const ctx = canvas?.getContext('2d');
   graph = new DrawGraph(canvas,ctx);
@@ -73,8 +82,23 @@ onBeforeUnmount(()=>{
     align-items: center;
     justify-content: center;
     .colorSelect{
-      margin-left: 10px;
+      margin: 0 10px;
     }
+  }
+
+  .graphical{
+    text-align: center;
+    cursor: pointer;
+    margin: 0 10px;
+    padding: 5px;
+    p{
+      margin: 0;
+      font-size: 12px;
+    }
+  }
+  .select{
+    border: 1px solid #014da1;
+    border-radius: 5px;
   }
 }
 </style>
