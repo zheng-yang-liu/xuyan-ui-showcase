@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import {useRouter}from"vue-router"
 const router = useRouter()
-import page1 from "@/views/tools/animationAPI/animationPresentation/pageAnimation/page1.vue?raw"
+import page1 from "@/views/Utils/AnimationAPI/animationPresentation/pageAnimation/page1.vue?raw"
 import attributesType from "./attributesType?raw"
 const catalogue = [
   {

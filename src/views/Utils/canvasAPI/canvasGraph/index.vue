@@ -44,7 +44,7 @@
 <script setup lang="ts">
 import{useRouter}from "vue-router";
 import basicUsageText from "../Effects/canvasGraph.vue?raw"
-import customizeGraphics from"@/views/tools/canvasAPI/Effects/customizeGraphics.vue?raw"
+import customizeGraphics from "@/views/Utils/canvasAPI/Effects/customizeGraphics.vue?raw"
 import detailType from"./detailType.d.ts?raw"
 import Ellipse from"./Ellipse.ts?raw"
 const router = useRouter();
