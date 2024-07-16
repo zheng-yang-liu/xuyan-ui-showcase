@@ -84,46 +84,51 @@ const routes= [
     component:()=>import("@/views/Utils/index.vue"),
     children:[
       {
-        path:"index",
+        path:"installOrUse",
+        name:"Utils 安装/使用",
+        component:()=>import("@/views/Utils/installOrUse/index.vue")
+      },
+      {
+        path:"Tools",
         name:"基础工具",
         component:()=>import("@/views/Utils/Tools/index.vue")
       },
       {
-        path:"installOrUse",
-        name:"Tools安装/使用",
-        component:()=>import("@/views/Utils/installOrUse/index.vue")
+        path:"AnimationAPI",
+        name:"动画API",
+        children:[
+          {
+            path:"svgAnimation",
+            name:"SVG动画",
+            component:()=>import("@/views/Utils/AnimationAPI/svgAnimation/index.vue")
+          },
+          {
+            path:'pageAnimation',
+            name:"页面动画",
+            component:()=>import("@/views/Utils/AnimationAPI/pageAnimation/index.vue")
+          },
+          {
+            path:"numberAnimate",
+            name:"数字动画",
+            component:()=>import("@/views/Utils/AnimationAPI/numberAnimate/index.vue")
+          }
+        ]
       },
       {
-        path:"canvasGraph",
-        name:"canvas绘图",
-        component:()=>import("@/views/Utils/canvasAPI/canvasGraph/index.vue")
+        path:"canvasAPI",
+        name:"canvas相关API",
+        children:[
+          {
+            path:"canvasGraph",
+            name:"canvas绘图",
+            component:()=>import("@/views/Utils/canvasAPI/canvasGraph/index.vue")
+          },
+        ]
       },
     ]
   },
   {
-    path:"/AnimationAPI",
-    name:"动画API",
-    component:()=>import("@/views/Utils/index.vue"),
-    children:[
-      {
-        path:"svgAnimation",
-        name:"SVG动画",
-        component:()=>import("@/views/Utils/AnimationAPI/svgAnimation/index.vue")
-      },
-      {
-        path:'pageAnimation',
-        name:"页面动画",
-        component:()=>import("@/views/Utils/AnimationAPI/pageAnimation/index.vue")
-      },
-      {
-        path:"numberAnimate",
-        name:"数字动画",
-        component:()=>import("@/views/Utils/AnimationAPI/numberAnimate/index.vue")
-      }
-    ]
-  },
-  {
-    path:"/animationPre",
+    path:"/animationEffect",
     name:"动画预览",
     component:()=>import("@/views/Utils/AnimationAPI/animationPresentation/pageAnimation/index.vue"),
     children:[

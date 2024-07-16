@@ -42,42 +42,42 @@ const menuItems = [
     ]
   },
   {
-    title:"基础API",
+    title:"基础工具",
     children:[
       {
         title:"Tools",
         id:"8856d1b8eb1bfc8e7fa1a721145b357e",
-        path:"/Utils/index"
+        path:"/Utils/Tools"
       }
     ]
   },
   {
-    title: '动画 API',
+    title: '动画API',
     children: [
       {
         title: 'svg描边动画',
         id: '8e344ac32f4287b8f9f761319f1962af',
-        path: '/AnimationAPI/svgAnimation',
+        path: '/Utils/AnimationAPI/svgAnimation',
       },
       {
         title: '页面动画',
         id: 'a5aa77b57fa46044dc27a25437d95206',
-        path:"/AnimationAPI/pageAnimation"
+        path:"/Utils/AnimationAPI/pageAnimation"
       },
       {
         title:"数字动画",
         id:"4a4b5de32322092ff3a3fbf1078ac7d9",
-        path: "/AnimationAPI/numberAnimate"
+        path: "/Utils/AnimationAPI/numberAnimate"
       }
     ]
   },
   {
-    title:"canvas API",
+    title:"canvasAPI",
     children:[
       {
-        title:"canvas 画图",
+        title:"canvas绘图",
         id:"5f95b7ae0e1f3cca2da58559756cb36d",
-        path:"/Utils/canvasGraph"
+        path:"/Utils/canvasAPI/canvasGraph"
       }
     ]
   }

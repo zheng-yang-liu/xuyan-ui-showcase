@@ -143,7 +143,7 @@ const animationObserverData = [
 ]
 
 const toPresentation = () => {
-  router.push({ path:'/animationPre/page1', query: { t: Date.now() } });
+  router.push({ path:'/animationEffect/page1'});
 }
 </script>
 

@@ -9,7 +9,7 @@ declare const animationObserver:{
     // 需要操作的元素的配置
     animationList:{
         element: { elType: string; el: string; additional?: string };
-        config?: {[key:CSSStyleValue]:string};//{marginTop:"100px"}
+        config?: {[key:string]:string};//{marginTop:"100px"}
     };
     // 要操作的元素的临界值配置
     animationCriticalList?:{
