@@ -11,7 +11,10 @@
         </xy-effect-preview>
       </template>
       <template #Attributes>
-        <xy-attribute-table :data="attributesData"></xy-attribute-table>
+        <xy-attribute-table
+          :columns-no-default="true"
+          :data="attributesData"
+        ></xy-attribute-table>
       </template>
 
     </xy-showcase-page>
@@ -25,16 +28,16 @@ import basicUsageText from "./basicUsage.vue?raw"
 const catalogue = [
   {
     title: '基础用法',
-    id: 'b1',
+    id: '730ca7e09ce810897b17179341c60d20',
     slot: 'basicUsage'
   },
   {
     title: 'API',
-    id: 'b2',
+    id: 'b8901c711f73a25476ce244d19528aa4',
     children: [
       {
         title: "Attributes",
-        id: "b3",
+        id: "911f114cc41ef70c13bb08412896216b",
         slot: "Attributes"
       }
     ]
@@ -42,23 +45,30 @@ const catalogue = [
 ]
 const attributesData = [
   {
-    name: 'code',
-    explain: '代码内容',
-    type: 'string',
+    name: 'duration',
+    explain: '动画持续时间 ms',
+    type: 'number',
   },
   {
-    name: 'language',
-    explain: '语言',
-    type: 'string',
-    default: "xml",
+    name: 'from',
+    explain: '起始值',
+    type: 'number',
   },
   {
-    name: 'round',
-    explain: '是否圆角',
-    type: 'boolean',
-    default: "true",
+    name: 'to',
+    explain: '结束值',
+    type: 'number',
+  },
+  {
+    name:"callback",
+    explain:"回调函数",
+    type:[
+      {
+        value:"Function",
+        complexType:"(value:number)=>void",
+      }
+    ]
   }
-
 ]
 </script>
 

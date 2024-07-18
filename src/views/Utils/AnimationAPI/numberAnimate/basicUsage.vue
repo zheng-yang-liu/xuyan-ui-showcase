@@ -1,7 +1,6 @@
 <template>
   <div>
-    <xy-button @click="actionAnimation">开始动画</xy-button>
-    <p>{{num}}</p>>
+    <xy-button @click="actionAnimation" style="margin-right: 10px">开始动画</xy-button>{{num}}
   </div>
 </template>
 
@@ -12,11 +11,11 @@ import {AnimationUtils} from"yanyan-ui"
 const num = ref(0);
 const actionAnimation = ()=>{
   AnimationUtils.numberAnimate(
-    num.value,
+    1050,
     0,
     1000,
     (value:number)=>{
-      num.value = value;
+      num.value = Math.floor(value);
     })
 }
 
