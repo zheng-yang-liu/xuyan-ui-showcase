@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref, reactive} from "vue";
+import {ref, onMounted} from "vue";
 import {Tools} from "yanyan-ui";
 const colorValues = [
   {
@@ -68,6 +68,9 @@ const action = () => {
   })
 }
 
+onMounted(()=>{
+  console.log(window.innerWidth)
+})
 </script>
 
 <style scoped lang="scss">

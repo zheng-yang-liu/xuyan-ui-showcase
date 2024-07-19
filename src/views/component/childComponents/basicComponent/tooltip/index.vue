@@ -4,6 +4,7 @@
       introduction="用于显示某些隐藏的内容或显示hover时的提示信息"
       page-title="文字提示"
       :catalogue="catalogue"
+      :screenMaxCatalogue="false"
     >
       <template #basicUsage>
         <xy-effect-preview :code="basicUsageText">

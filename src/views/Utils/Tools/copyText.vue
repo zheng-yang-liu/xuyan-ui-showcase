@@ -33,12 +33,9 @@ const copyMsg = async()=>{
 
 <style scoped lang="scss">
 .list{
-  display: flex;
-  align-items:center;
   div:nth-child(2){
-    margin-left: 50px;
     textarea{
-      width: 500px;
+      width:400px;
       height: 100px;
       padding: 5px;
     }
@@ -46,6 +43,9 @@ const copyMsg = async()=>{
   .item{
     div{
       margin: 5px 0;
+    }
+    div:nth-child(2){
+      margin-left: 5px;
     }
   }
 }

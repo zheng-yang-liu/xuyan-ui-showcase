@@ -84,6 +84,12 @@ const attributesData = [
     explain:"动态显示目录的宽度",
     type:"number",
     default:"1075"
+  },
+  {
+    name:"screenMaxCatalogue",
+    explain:"只有全屏状态下才显示目录",
+    type:"boolean",
+    default:"false"
   }
 
 ]

@@ -206,7 +206,7 @@ const attributesData = [
     name: "isTheHeightSet",
     explain: "是否自动设置menuLeft的高度",
     type: "boolean",
-    default: "true"
+    default: "false"
   },
   {
     name:"needPath",
