@@ -1,8 +1,8 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction=""
-      page-title=""
+      introduction="提供基础工具函数使用"
+      page-title="Tools"
       :catalogue="catalogue"
     >
       <template #convertTimeFormat>
@@ -55,6 +55,10 @@
         <xy-effect-preview :code="base64ToFileText">
           <base64ToFile></base64ToFile>
         </xy-effect-preview>
+        <xy-attribute-table
+          :data="base64ToFileData"
+          :columns-no-default="true"
+        ></xy-attribute-table>
       </template>
       <template #fileToBase64>
         <xy-effect-preview :code="fileToBase64Text">
@@ -88,8 +92,43 @@
         </xy-effect-preview>
         <xy-attribute-table
           :data="deepLookupData"
+          :columns-no-default="true"
         ></xy-attribute-table>
-
+      </template>
+      <template #throttle>
+        <xy-effect-preview :code="throttleText">
+          <throttle></throttle>
+        </xy-effect-preview>
+        <xy-attribute-table
+          :data="throttleData"
+          :columns-no-default="true"
+        ></xy-attribute-table>
+      </template>
+      <template #copyText>
+        <xy-effect-preview :code="copyTextText">
+          <copyText></copyText>
+        </xy-effect-preview>
+        <xy-attribute-table
+          :data="copyTextData"
+          :columns-no-default="false"
+        ></xy-attribute-table>
+      </template>
+      <template #changeColor>
+        <xy-effect-preview :code="changeColorText">
+          <changeColor></changeColor>
+        </xy-effect-preview>
+        <xy-attribute-table
+          :data="changeColorData"
+        ></xy-attribute-table>
+      </template>
+      <template #randomInterval>
+        <xy-effect-preview :code="randomIntervalText">
+          <randomInterval></randomInterval>
+        </xy-effect-preview>
+        <xy-attribute-table
+          :data="randomIntervalData"
+          :columns-no-default="true"
+        ></xy-attribute-table>
       </template>
 
     </xy-showcase-page>
@@ -117,6 +156,31 @@ import calculateItemDepth from "./calculateItemDepth.vue"
 import calculateItemDepthText from "./calculateItemDepth.vue?raw"
 import deepLookup from "./deepLookup.vue"
 import deepLookupText from "./deepLookup.vue?raw"
+import throttle from "./throttle.vue"
+import throttleText from "./throttle.vue?raw"
+import copyText from "./copyText.vue"
+import copyTextText from "./copyText.vue?raw"
+import changeColor from "./changeColor.vue"
+import changeColorText from "./changeColor.vue?raw"
+import randomInterval from "./randomInterval.vue"
+import randomIntervalText from "./randomInterval.vue?raw"
+
+//检测浏览器是否处于全屏状态
+function isFullScreen() {
+  return (
+    document.fullscreenElement ||
+    document.mozFullScreenElement ||
+    document.webkitFullscreenElement ||
+    document.msFullscreenElement ||
+    // 某些旧版浏览器可能使用这些属性
+    document.isFullScreen ||
+    document.mozIsFullScreen ||
+    document.webkitIsFullScreen ||
+    document.msFullscreen
+  );
+}
+
+console.log(isFullScreen(),'00000000');
 
 
 
@@ -165,7 +229,7 @@ const catalogue = [
   },
   {
     title:"获取数据类型",
-    id:"a928fef94a6f48a78dc3307b424fc039",
+    id:"2cc6d6148133df6633d4f10a52ccd35e",
     slot:"getType",
     explain:"getType"
   },
@@ -177,9 +241,33 @@ const catalogue = [
   },
   {
     title:"深度搜索",
-    id:"e653c2cab27bc9107acb4830d304b1f4",
+    id:"368400005b8f22011047aa05dd37e29f",
     explain: "deepLookup",
     slot: "deepLookup"
+  },
+  {
+    title:"节流函数",
+    id:"b164a7ddb591397d4c40c5ec1e72baa1",
+    explain: "throttle 每隔一段时间执行一次函数",
+    slot: "throttle"
+  },
+  {
+    title:"复制文本",
+    id:"88a12fe87191ac7b4fe34cdf46aa3915",
+    explain: "copyText",
+    slot: "copyText"
+  },
+  {
+    title:"改变颜色",
+    id:"bb4261f1ba8241e517e97d1cbcea83ee",
+    explain: "changeColor",
+    slot: "changeColor"
+  },
+  {
+    title:"区间随机整数",
+    id:"406365844b4745fa28ef9143ab77ae04",
+    explain: "randomInterval",
+    slot: "randomInterval"
   }
 ]
 const convertTimeFormatData = [
@@ -281,13 +369,30 @@ const debounceData = [
   },
   {
     name:"delay",
-    explain:"防抖时间",
+    explain:"防抖时间ms",
     type:'number'
   },
   {
     name:"return",
     explain:"返回值",
     type:'Function'
+  }
+]
+const base64ToFileData = [
+  {
+    name:"urlData",
+    explain:"base64数据",
+    type:'string'
+  },
+  {
+    name:"fileName",
+    explain:"文件名",
+    type:'string'
+  },
+  {
+    name:"return",
+    explain:"返回值",
+    type:"File"
   }
 ]
 const fileToBase64Data = [
@@ -385,7 +490,86 @@ const deepLookupData = [
     ]
   }
 ]
-
+const throttleData = [
+  {
+    name:"fn",
+    explain:"需要节流的函数",
+    type:'Function'
+  },
+  {
+    name:"delay",
+    explain:"节流时间ms",
+    type:'number'
+  },
+  {
+    name:"return",
+    explain:"返回值",
+    type:'Function'
+  }
+]
+const copyTextData = [
+  {
+    name:"text",
+    explain:"需要复制的文本",
+    type:'string'
+  },
+  {
+    name:"ifShowMsg",
+    explain:"是否显示提示",
+    type:'boolean',
+    default:"true"
+  },
+  {
+    name:"return",
+    explain:"返回值",
+    type:[
+      {
+        value:"Promise",
+        complexType:"Promise<{code:number,message:string}>"
+      }
+    ]
+  }
+]
+const changeColorData = [
+  {
+    name:"colorValue",
+    explain:"16进制颜色值 或 rgb() 或 rgba()",
+    type:'string'
+  },
+  {
+    name:"degree",
+    explain:"改变的程度,负数加深颜色or透明度变小；正数颜色变浅or透明度变大",
+    type:"number"
+  },
+  {
+    name:"originally",
+    explain:"返回结果和原本类型一致,false时输出16进制颜色值",
+    type:"boolean",
+    default:"true"
+  },
+  {
+    name: "return",
+    explain: "返回值",
+    type: "string"
+  }
+]
+const randomIntervalData = [
+  {
+    name:"min",
+    explain:"最小值",
+    type:'number'
+  },
+  {
+    name:"max",
+    explain:"最大值",
+    type:'number'
+  },
+  {
+    name:"return",
+    explain:"返回值 介于min和max之间的随机数",
+    type:'number'
+  }
+]
 
 </script>
 

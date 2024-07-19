@@ -9,7 +9,7 @@ import {Tools} from "yanyan-ui";
 import base64Data from "./base64Data.txt?raw"
 
 const active = () =>{
-  const file = Tools.base64ToFile(base64Data, "test.png");
+  const file = Tools.base64ToFile(base64Data,'test.png');
   console.log(base64Data);
   console.log('file\n', file);
 }
