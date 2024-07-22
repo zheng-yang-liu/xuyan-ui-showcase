@@ -12,6 +12,7 @@
             :menuItems="menuItems"
             :select-style="selectStyle"
             :initByRouter="true"
+            :isTheHeightSet="true"
           >
           </xy-menu-left>
         </div>
