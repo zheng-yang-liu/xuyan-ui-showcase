@@ -38,7 +38,7 @@ export default defineComponent({
       AnimationUtils.svgAnimation();
     })
     const toComponent = () => {
-      router.push('/component/installOrUse');
+      router.push('/component/componentBasics/installOrUse');
     }
     return {
       toComponent
