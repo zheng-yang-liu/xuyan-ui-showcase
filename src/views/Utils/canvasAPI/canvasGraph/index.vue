@@ -43,8 +43,8 @@
 
 <script setup lang="ts">
 import{useRouter}from "vue-router";
-import basicUsageText from "../Effects/canvasGraph.vue?raw"
-import customizeGraphics from "@/views/Utils/canvasAPI/Effects/customizeGraphics.vue?raw"
+import basicUsageText from "../../../pageEffects/effects/canvasGraph.vue?raw"
+import customizeGraphics from "@/views/pageEffects/effects/customizeGraphics.vue?raw"
 import detailType from"./detailType.d.ts?raw"
 import Ellipse from"./Ellipse.ts?raw"
 const router = useRouter();
@@ -274,10 +274,10 @@ const GraphData = [
   }
 ]
 const toEffeft = () => {
-  router.push('/canvasEffect/canvasGraph')
+  router.push('/pageEffects/canvasGraph')
 }
 const toEffeftCus = () => {
-  router.push('/canvasEffect/customizeGraphics')
+  router.push('/pageEffects/customizeGraphics')
 }
 </script>
 

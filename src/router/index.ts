@@ -169,31 +169,23 @@ const routes= [
     ]
   },
   {
-    path:"/animationEffect",
-    name:"动画预览",
-    component:()=>import("@/views/Utils/AnimationAPI/animationPresentation/pageAnimation/index.vue"),
+    path:"/pageEffects",
+    name:"页面效果",
     children:[
       {
         path:"page1",
         name:"page1",
-        component:()=>import("@/views/Utils/AnimationAPI/animationPresentation/pageAnimation/page1.vue")
-      }
-    ]
-  },
-  {
-    path:"/canvasEffect",
-    name:"canvas效果预览",
-    component:()=>import("@/views/Utils/AnimationAPI/animationPresentation/pageAnimation/index.vue"),
-    children:[
+        component:()=>import("@/views/pageEffects/effects/page1.vue")
+      },
       {
         path:"canvasGraph",
-        name:"canvasGraph",
-        component:()=>import("@/views/Utils/canvasAPI/Effects/canvasGraph.vue")
+        name:"canvas绘图效果",
+        component:()=>import("@/views/pageEffects/effects/canvasGraph.vue")
       },
       {
         path:"customizeGraphics",
         name:"自定义图形",
-        component:()=>import("@/views/Utils/canvasAPI/Effects/customizeGraphics.vue")
+        component:()=>import("@/views/pageEffects/effects/customizeGraphics.vue")
       }
     ]
   }

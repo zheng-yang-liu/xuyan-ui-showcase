@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import {useRouter}from"vue-router"
 const router = useRouter()
-import page1 from "@/views/Utils/AnimationAPI/animationPresentation/pageAnimation/page1.vue?raw"
+import page1 from "@/views/pageEffects/effects/page1.vue?raw"
 import attributesType from "./attributesType?raw"
 const catalogue = [
   {
@@ -143,7 +143,7 @@ const animationObserverData = [
 ]
 
 const toPresentation = () => {
-  router.push({ path:'/animationEffect/page1'});
+  router.push({ path:'/pageEffects/page1'});
 }
 </script>
 
