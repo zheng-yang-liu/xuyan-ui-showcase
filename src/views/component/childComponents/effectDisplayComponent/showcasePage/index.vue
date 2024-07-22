@@ -75,9 +75,9 @@ const attributesData = [
   },
   {
     name:"titleTriggerRange",
-    explain:"标题触发范围的height,从顶部开始计算",
+    explain:"标题触发范围的height,从顶部开始计算,为屏幕高度的四分之三+titleTriggerRange",
     type:"number",
-    default:"200"
+    default:"0"
   },
   {
     name:"showCatalogueWidth",
