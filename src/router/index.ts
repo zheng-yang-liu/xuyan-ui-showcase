@@ -170,7 +170,7 @@ const routes= [
   },
   {
     path:"/pageEffects",
-    name:"页面效果",
+    name:"整页组件的页面效果",
     children:[
       {
         path:"page1",
