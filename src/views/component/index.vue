@@ -4,7 +4,7 @@
       <tabBar></tabBar>
     </template>
     <template #aside>
-      <transition name="hideMenuLeft">
+      <transition name="slide">
         <div v-if="direction==='horizontal'" class="horLeft">
           <xy-menu-left
             :expandAll="true"
@@ -18,7 +18,8 @@
           </xy-menu-left>
         </div>
       </transition>
-      <div v-else class="verLeft">
+
+      <div v-if="direction==='vertical'" class="verLeft">
         <div @click="showMenu = true">
           <xy-icon icon="iconfont icon-caidan"></xy-icon>菜单
         </div>
@@ -27,7 +28,6 @@
           @click="closeMenu"
           class="hideMenuStyle"
         >
-
           <xy-menu-left
             :width="menuLeftWidth"
             :expandAll="true"
@@ -238,6 +238,10 @@ onBeforeUnmount(()=>{
   width: 100%;
   height: 100%;
   padding: 20px 0 0 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 .verLeft{
   height: 50px;
@@ -254,5 +258,15 @@ onBeforeUnmount(()=>{
   position: sticky!important;
   top: 0!important;
   z-index: 999;
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: transform 0.5s;
+}
+.slide-enter-from, .slide-leave-to {
+  transform: translateX(-220px);
+}
+.slide-enter-to, .slide-leave-from {
+  transform: translateX(0);
 }
 </style>
