@@ -4,18 +4,20 @@
       <tabBar></tabBar>
     </template>
     <template #aside>
-      <div v-if="direction==='horizontal'" class="horLeft">
-        <xy-menu-left
-          :expandAll="true"
-          :initByRouter="true"
-          :defaultStyle="false"
-          :isTheHeightSet="true"
-          :menuItems="menuItems"
-          :select-style="selectStyle"
-          :menuLeftStyle="{backgroundColor: 'white'}"
-        >
-        </xy-menu-left>
-      </div>
+      <transition name="hideMenuLeft">
+        <div v-if="direction==='horizontal'" class="horLeft">
+          <xy-menu-left
+            :expandAll="true"
+            :initByRouter="true"
+            :defaultStyle="false"
+            :isTheHeightSet="true"
+            :menuItems="menuItems"
+            :select-style="selectStyle"
+            :menuLeftStyle="{backgroundColor: 'white'}"
+          >
+          </xy-menu-left>
+        </div>
+      </transition>
       <div v-else class="verLeft">
         <div @click="showMenu = true">
           <xy-icon icon="iconfont icon-caidan"></xy-icon>菜单
