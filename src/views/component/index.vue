@@ -1,54 +1,61 @@
 <template>
   <xy-classic-page :direction="direction" :asideWidth="220">
-      <template #header>
-        <tabBar></tabBar>
-      </template>
-      <template #aside>
-        <div v-if="direction==='horizontal'" class="horLeft">
+    <template #header>
+      <tabBar></tabBar>
+    </template>
+    <template #aside>
+      <div v-if="direction==='horizontal'" class="horLeft">
+        <xy-menu-left
+          :expandAll="true"
+          :initByRouter="true"
+          :defaultStyle="false"
+          :isTheHeightSet="true"
+          :menuItems="menuItems"
+          :select-style="selectStyle"
+          :menuLeftStyle="{backgroundColor: 'white'}"
+        >
+        </xy-menu-left>
+      </div>
+      <div v-else class="verLeft">
+        <div @click="showMenu = true">
+          <xy-icon icon="iconfont icon-caidan"></xy-icon>菜单
+        </div>
+        <div
+          v-if="showMenu"
+          @click="closeMenu"
+          class="hideMenuStyle"
+        >
+
           <xy-menu-left
+            :width="menuLeftWidth"
             :expandAll="true"
             :initByRouter="true"
             :defaultStyle="false"
             :isTheHeightSet="true"
             :menuItems="menuItems"
             :select-style="selectStyle"
-            :menuLeftStyle="{backgroundColor: 'white'}"
+            :menuLeftStyle="[{backgroundColor: 'white',padding:'0 20px'},animationLeftStyle]"
           >
           </xy-menu-left>
+          <div class="menuLeftMask" :style="animationMenuMaskStyle"></div>
+
         </div>
-        <div v-else class="verLeft">
-          <xy-button @click="showMenu = true" type="primary">展开菜单</xy-button>
-          <div
-            v-if="showMenu"
-            @click="closeMenu"
-            class="hideMenuStyle"
-          >
-            <xy-menu-left
-              :expandAll="true"
-              :initByRouter="true"
-              :defaultStyle="false"
-              :isTheHeightSet="true"
-              :menuItems="menuItems"
-              :select-style="selectStyle"
-              :menuLeftStyle="{backgroundColor: 'white'}"
-            >
-            </xy-menu-left>
-          </div>
+      </div>
+    </template>
+    <template #main>
+      <div style="width: 100%;height: 100%;padding: 10px;overflow-y: auto;">
+        <div style="padding: 64px 0 48px 54px">
+          <router-view></router-view>
         </div>
-      </template>
-      <template #main>
-        <div style="width: 100%;height: 100%;padding: 10px;overflow-y: auto;">
-          <div style="padding: 64px 0 48px 54px">
-            <router-view></router-view>
-          </div>
-        </div>
-      </template>
-    </xy-classic-page>
+      </div>
+    </template>
+  </xy-classic-page>
 </template>
 
 <script lang="ts" setup>
-import { ref ,onMounted,onBeforeUnmount} from 'vue'
+import { ref ,onMounted,onBeforeUnmount,watch} from 'vue'
 import tabBar from "@/components/tabBar.vue"
+import {AnimationUtils} from "yanyan-ui";
 const menuItems = [
   {
     title:'组件基础',
@@ -148,26 +155,57 @@ const menuItems = [
 ]
 const direction = ref('horizontal')
 const showMenu = ref(false)
-
-
-
+const selectStyle = {
+  backgroundColor: '#ecf5ff',
+  color: '#409eff',
+  borderRadius: '5px',
+}
+const animationLeftStyle = ref({
+  transform: 'translateX(-200px)'
+})
+const animationMenuMaskStyle = ref({
+  opacity: 0
+})
+const menuLeftWidth = 220;
 
 const setArrange = ()=>{
-  console.log('oo')
   const width = window.innerWidth;
-  console.log(width)
   if(width<865){
-    // showMenu.value = false;
     direction.value = 'vertical'
   }else{
-    // showMenu.value = true;
     direction.value = 'horizontal'
   }
 }
 const closeMenu = ()=>{
-  console.log('close');
-  showMenu.value = false;
+  AnimationUtils.numberAnimate(150,0,-menuLeftWidth,(val)=>{
+    animationLeftStyle.value = {
+      transform: `translateX(${val}px)`
+    }
+  })
+  AnimationUtils.numberAnimate(150,0.6,0,(val)=>{
+    animationMenuMaskStyle.value = {
+      opacity: val
+    }
+  })
+  setTimeout(()=>{
+    showMenu.value = false;
+  },250)
 }
+watch(()=>showMenu.value,(NewVal)=>{
+  if(NewVal){
+    AnimationUtils.numberAnimate(250,-menuLeftWidth,0,(val)=>{
+      animationLeftStyle.value = {
+        transform: `translateX(${val}px)`
+      }
+    })
+    AnimationUtils.numberAnimate(150,0,0.6,(val)=>{
+      animationMenuMaskStyle.value = {
+        opacity: val
+      }
+    })
+  }
+})
+
 onMounted(()=>{
   setArrange()
   window.addEventListener('resize',setArrange)
@@ -175,23 +213,24 @@ onMounted(()=>{
 onBeforeUnmount(()=>{
   window.removeEventListener('resize',setArrange)
 })
-const selectStyle = {
-  backgroundColor: '#ecf5ff',
-  color: '#409eff',
-  borderRadius: '5px',
-}
-
 </script>
 
 <style scoped lang="scss">
 .hideMenuStyle{
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #1e1e1e75;
+  inset: 0;
   z-index: 9999;
-  width: 100%
+  .menuLeftBox{
+
+  }
+  .menuLeftMask{
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    z-index: -1;
+  }
+  //background-color: #6c6c6c;
+  //width: 100%;
 }
 .horLeft{
   width: 100%;
@@ -204,6 +243,10 @@ const selectStyle = {
   border-bottom: 1px #dedfe3 solid;
   background-color: white;
   padding-left: 60px;
+  &:hover{
+    cursor: pointer;
+  }
+
 }
 ::v-deep(.xy-aside){
   position: sticky!important;
