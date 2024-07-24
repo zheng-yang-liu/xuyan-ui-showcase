@@ -186,6 +186,11 @@ const routes= [
         path:"customizeGraphics",
         name:"自定义图形",
         component:()=>import("@/views/pageEffects/effects/customizeGraphics.vue")
+      },
+      {
+        path:"classicPage",
+        name:"经典页面布局-效果",
+        component:()=>import("@/views/pageEffects/effects/classicPage.vue")
       }
     ]
   }

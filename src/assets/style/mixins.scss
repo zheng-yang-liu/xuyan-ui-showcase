@@ -1,5 +1,1 @@
-@mixin display-flex($align:center, $justify:flex-start){
-  display:flex;
-  align-items: $align;
-  justify-content: $justify;
-}
+@import '/node_modules/yanyan-ui/assets/style/mixin';

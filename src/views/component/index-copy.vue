@@ -1,10 +1,11 @@
 <template>
-  <xy-classic-page :direction="direction" :asideWidth="220">
+  <div>
+    <xy-classic-page :direction="direction" :asideWidth="220">
       <template #header>
         <tabBar></tabBar>
       </template>
       <template #aside>
-        <div v-if="direction==='horizontal'" class="horLeft">
+        <div v-if="direction==='horizontal'" style="width: 100%;height: 100%;padding: 20px 0 0 20px">
           <xy-menu-left
             :expandAll="true"
             :initByRouter="true"
@@ -16,7 +17,7 @@
           >
           </xy-menu-left>
         </div>
-        <div v-else class="verLeft">
+        <div v-else style="height: 50px;display: flex;align-items: center;border-bottom: 1px #dedfe3 solid">
           <xy-button @click="showMenu = true" type="primary">展开菜单</xy-button>
           <div
             v-if="showMenu"
@@ -44,6 +45,7 @@
         </div>
       </template>
     </xy-classic-page>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -192,22 +194,5 @@ const selectStyle = {
   background-color: #1e1e1e75;
   z-index: 9999;
   width: 100%
-}
-.horLeft{
-  width: 100%;
-  height: 100%;
-  padding: 20px 0 0 20px;
-}
-.verLeft{
-  height: 50px;
-  @include display-flex();
-  border-bottom: 1px #dedfe3 solid;
-  background-color: white;
-  padding-left: 60px;
-}
-::v-deep(.xy-aside){
-  position: sticky!important;
-  top: 0!important;
-  z-index: 999;
 }
 </style>

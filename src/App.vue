@@ -2,7 +2,7 @@
   <RouterView />
 </template>
 
-<style setup lang="ts">
+<style lang="ts">
 
 </style>
 
