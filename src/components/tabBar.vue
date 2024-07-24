@@ -1,5 +1,5 @@
 <template>
-  <div class="tabBar">
+  <div class="tabBar" :style="tabStyle">
     <div class="logo" @click="goIndex">
       <img src="@/assets/logo.png">
       <p>xuyan</p>
@@ -18,6 +18,10 @@ const props = defineProps({
   currentIndex:{
     type:Number,
     default:0
+  },
+  tabStyle:{
+    type:Object,
+    default:()=>{}
   }
 })
 const tabList = [

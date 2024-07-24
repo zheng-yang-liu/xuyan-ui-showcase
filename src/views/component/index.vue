@@ -1,7 +1,7 @@
 <template>
   <xy-classic-page :direction="direction" :asideWidth="220">
     <template #header>
-      <tabBar></tabBar>
+      <tabBar :tabStyle="direction==='vertical'?{padding:'0 54px'}:{}"></tabBar>
     </template>
     <template #aside>
       <transition name="slide">
