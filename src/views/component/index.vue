@@ -239,8 +239,6 @@ onBeforeUnmount(()=>{
   height: 100%;
   padding: 20px 0 0 20px;
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 10;
 }
 .verLeft{
