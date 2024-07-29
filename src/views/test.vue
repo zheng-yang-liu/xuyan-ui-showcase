@@ -16,14 +16,12 @@ const action = ()=>{
     1000,                        // 持续时间
     0,                           // 起始值
     100,                         // 结束值
-    (value) => {
+    (value:number) => {
       console.log(value);        // 回调函数，每帧调用一次
       count.value = value
     },
     'linear'
   );
-
-
 }
 
 </script>

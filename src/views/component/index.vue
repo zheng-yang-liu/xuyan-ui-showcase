@@ -155,8 +155,9 @@ const menuItems = [
     ]
   }
 ]
-const direction = ref('horizontal')
-const showMenu = ref(false)
+const targetWidth = 865;
+const direction = ref(window.innerWidth >= targetWidth?'horizontal':'vertical');
+const showMenu = ref(window.innerWidth >= targetWidth);
 const selectStyle = {
   backgroundColor: '#ecf5ff',
   color: '#409eff',
@@ -172,39 +173,41 @@ const menuLeftWidth = 220;
 
 const setArrange = ()=>{
   const width = window.innerWidth;
-  if(width<865){
+  if(width<targetWidth){
     direction.value = 'vertical'
   }else{
     direction.value = 'horizontal'
   }
 }
+const closeTime = 150;
+const openTime = 350;
 const closeMenu = ()=>{
-  AnimationUtils.numberAnimate(150,0,-menuLeftWidth,(val)=>{
+  AnimationUtils.numberAnimate(closeTime,0,-menuLeftWidth,(val)=>{
     animationLeftStyle.value = {
       transform: `translateX(${val}px)`
     }
-  })
-  AnimationUtils.numberAnimate(150,0.6,0,(val)=>{
+  },"ease")
+  AnimationUtils.numberAnimate(closeTime,0.6,0,(val)=>{
     animationMenuMaskStyle.value = {
       opacity: val
     }
-  })
+  },"ease")
   setTimeout(()=>{
     showMenu.value = false;
   },250)
 }
 watch(()=>showMenu.value,(NewVal)=>{
   if(NewVal){
-    AnimationUtils.numberAnimate(250,-menuLeftWidth,0,(val)=>{
+    AnimationUtils.numberAnimate(openTime,-menuLeftWidth,0,(val)=>{
       animationLeftStyle.value = {
         transform: `translateX(${val}px)`
       }
-    })
-    AnimationUtils.numberAnimate(150,0,0.6,(val)=>{
+    },"ease")
+    AnimationUtils.numberAnimate(closeTime,0,0.6,(val)=>{
       animationMenuMaskStyle.value = {
         opacity: val
       }
-    })
+    },"ease")
   }
 })
 
@@ -222,9 +225,6 @@ onBeforeUnmount(()=>{
   position: fixed;
   inset: 0;
   z-index: 9999;
-  .menuLeftBox{
-
-  }
   .menuLeftMask{
     position: fixed;
     inset: 0;
@@ -259,7 +259,7 @@ onBeforeUnmount(()=>{
 }
 
 .slide-enter-active, .slide-leave-active {
-  transition: transform 0.5s;
+  transition: transform 0.4s;
 }
 .slide-enter-from, .slide-leave-to {
   transform: translateX(-220px);
