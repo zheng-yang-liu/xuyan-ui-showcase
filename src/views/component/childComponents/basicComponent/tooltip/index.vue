@@ -43,31 +43,31 @@ import customContentText from "./customContent.vue?raw"
 const catalogue = [
   {
     title: '基础用法',
-    id: '69e241ba31c7b66e7e7346a1c0f4473b',
+    id: '3c2271cdea6fac38a0f15c1603bbd334',
     slot: 'basicUsage'
   },
   {
     title:"点击显示",
-    id:"4b0e9e5d5f9ebc5d931bcd8ecfc04e4e",
+    id:"bf548c6b2edbdbcb2697cf453dd6cf14",
     slot:"clickShow"
   },
   {
     title:"显示内容自定义",
-    id:"38c71e5312ea8015900427aaf0943547",
+    id:"b4d6cfa85388515191f0fb06da818254",
     slot:"customContent"
   },
   {
     title: 'API',
-    id: '528438a67170d062c1be712983f70a85',
+    id: '0cd0f623019d031beb24f9098c0c96b6',
     children: [
       {
         title: "Attributes",
-        id: "a8c3e6edd1564e789710ff0015739131",
+        id: "4ea3e7bd8154aa2b540a378decb97741",
         slot: "Attributes"
       },
       {
         title:"Slots",
-        id:"b1",
+        id:"4b99479b4f3cbf78f42dde350b846055",
         slot:"slots"
       }
     ]
@@ -108,6 +108,15 @@ const attributesData = [
     explain: '左侧偏移量',
     type: 'number',
     default:"0",
+  },
+  {
+    name: 'position',
+    explain: '位置',
+    type: [{
+      value:"positionType",
+      complexType:"'top' | 'right' | 'bottom' | 'left'"
+    }],
+    default: "'bottom'",
   }
 
 ]
