@@ -20,7 +20,7 @@ const action = ()=>{
       console.log(value);        // 回调函数，每帧调用一次
       count.value = value
     },
-    'linear'
+    'ease-in'
   );
 }
 

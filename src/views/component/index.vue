@@ -1,5 +1,5 @@
 <template>
-  <xy-classic-page :direction="direction" :asideWidth="220">
+  <xy-classic-page :direction="direction" :asideWidth="menuLeftWidth">
     <template #header>
       <tabBar :tabStyle="direction==='vertical'?{padding:'0 54px'}:{}"></tabBar>
     </template>
@@ -45,7 +45,7 @@
       </div>
     </template>
     <template #main>
-      <div style="width: 100%;height: 100%;padding: 10px;overflow-y: auto;">
+      <div style="width: 100%;height: 100%;padding: 10px 10px 0 10px;overflow-y: auto;">
         <div style="padding: 64px 0 48px 54px">
           <router-view></router-view>
         </div>
@@ -106,6 +106,11 @@ const menuItems = [
         title:"经典页面布局",
         id:"e05bf199ade4e8c31e5a7aa27d9e8361",
         path:'/component/basicComponent/classicPage'
+      },
+      {
+        title:"input输入框",
+        id:"f02adbf101146350b08b63a0881f06d4",
+        path:"/component/basicComponent/input"
       }
     ]
   },
@@ -163,14 +168,14 @@ const selectStyle = {
   color: '#409eff',
   borderRadius: '5px',
 }
-const animationLeftStyle = ref({
-  transform: 'translateX(-200px)'
-})
+
 const animationMenuMaskStyle = ref({
   opacity: 0
 })
 const menuLeftWidth = 220;
-
+const animationLeftStyle = ref({
+  transform: `translateX(-${menuLeftWidth}px)`
+})
 const setArrange = ()=>{
   const width = window.innerWidth;
   if(width<targetWidth){

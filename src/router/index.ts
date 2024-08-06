@@ -61,6 +61,11 @@ const routes= [
             path:"classicPage",
             name:"经典页面布局",
             component:()=>import("@/views/component/childComponents/basicComponent/classicPage/index.vue")
+          },
+          {
+            path:"input",
+            name:'input输入框',
+            component:()=>import("@/views/component/childComponents/basicComponent/input/index.vue")
           }
         ]
       },
