@@ -1,8 +1,8 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction=""
-      page-title=""
+      introduction="为整体网页实现动画效果，根据滚动条节点为页面元素实现动画效果，官网产品展示效果"
+      page-title="页面动画"
       :catalogue="catalogue"
     >
       <template #basicUsage>

@@ -1,8 +1,8 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction=""
-      page-title=""
+      introduction="提供经典的三栏布局顶部导航、左侧菜单、右侧主内容"
+      page-title="页面布局"
       :catalogue="catalogue"
     >
       <template #basicUsage>

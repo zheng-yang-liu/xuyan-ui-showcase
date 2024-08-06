@@ -1,8 +1,8 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction=""
-      page-title=""
+      introduction="为svg路径实现描边动画的效果，支持多种缓动动画"
+      page-title="svg描边动画"
       :catalogue="catalogue"
     >
       <template #basicUsage>
@@ -49,11 +49,11 @@ const attributesData = [
   },
   {
     name: 'timingFunction',
-    explain: '动画速度曲线',
+    explain: '动画速度曲线、string类型可以设置为steps(n, start | end) 或者 cubic-bezier(n1, n2, n3, n4)',
     type: [
       {
         value:"timingFunction",
-        complexType:"'ease' | 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'step-start' | 'step-end' | 'steps' | 'cubic-bezier'"
+        complexType:"'ease' | 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'step-start' | 'step-end' | string"
       }
     ],
     default: "ease",

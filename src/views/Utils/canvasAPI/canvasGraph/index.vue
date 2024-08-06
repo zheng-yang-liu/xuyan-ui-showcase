@@ -1,8 +1,8 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction=""
-      page-title=""
+      introduction="可以实现各种图形的绘制，支持自定义绘制图形"
+      page-title="canvas绘图"
       :catalogue="catalogue"
     >
       <template #basicUsage>

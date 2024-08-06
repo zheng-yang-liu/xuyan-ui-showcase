@@ -1,8 +1,8 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction=""
-      page-title=""
+      introduction="为数字的变化提供动画支持，支出多种缓动动画效果及自定义动画函数来实现数字动画"
+      page-title="数字动画"
       :catalogue="catalogue"
     >
       <template #basicUsage>
