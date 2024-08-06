@@ -42,7 +42,7 @@ const toPath = (item:any) => {
 <style scoped lang="scss">
 $logoSize: 20px;
 .tabBar{
-  padding: 0 20px;
+  padding: 0 var(--tabBar-padding-leftAndRight);
   width:100%;
   height:100%;
   @include display-flex(center);
