@@ -26,7 +26,7 @@ const catalogue = [
     title: '基础用法',
     id: 'b0de01509cdaec5d6a38306b48cf1248',
     slot: 'basicUsage',
-    explain: '为path添加类型为svgLine/自定义类名,使其拥有动画'
+    explain: '为path添加类型为`svgLine`/`自定义类名`,使其拥有动画'
   },
   {
     title: 'API',
@@ -49,7 +49,7 @@ const attributesData = [
   },
   {
     name: 'timingFunction',
-    explain: '动画速度曲线、string类型可以设置为steps(n, start | end) 或者 cubic-bezier(n1, n2, n3, n4)',
+    explain: '动画速度曲线、string类型可以设置为`steps(n, start | end)` 或者 `cubic-bezier(n1, n2, n3, n4)`',
     type: [
       {
         value:"timingFunction",

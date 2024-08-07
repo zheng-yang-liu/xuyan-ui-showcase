@@ -165,25 +165,6 @@ import changeColorText from "./changeColor.vue?raw"
 import randomInterval from "./randomInterval.vue"
 import randomIntervalText from "./randomInterval.vue?raw"
 
-//检测浏览器是否处于全屏状态
-function isFullScreen() {
-  return (
-    document.fullscreenElement ||
-    document.mozFullScreenElement ||
-    document.webkitFullscreenElement ||
-    document.msFullscreenElement ||
-    // 某些旧版浏览器可能使用这些属性
-    document.isFullScreen ||
-    document.mozIsFullScreen ||
-    document.webkitIsFullScreen ||
-    document.msFullscreen
-  );
-}
-
-console.log(isFullScreen(),'00000000');
-
-
-
 const catalogue = [
   {
     title: '转换时间格式',
@@ -213,7 +194,7 @@ const catalogue = [
     title:"防抖函数",
     id:"7e42fd6ed0585f7d3e1cffca9482e46b",
     slot:"debounce",
-    explain:"debounce 只会在函数最后一次被调用时，执行该函数"
+    explain:"`debounce`只会在函数最后一次被调用时，执行该函数"
   },
   {
     title:"base64转file",
@@ -248,7 +229,7 @@ const catalogue = [
   {
     title:"节流函数",
     id:"b164a7ddb591397d4c40c5ec1e72baa1",
-    explain: "throttle 每隔一段时间执行一次函数",
+    explain: "`throttle`每隔一段时间执行一次函数",
     slot: "throttle"
   },
   {
@@ -347,7 +328,7 @@ const accordingToKeyUniqueData = [
   },
   {
     name:"key",
-    explain:"去重的key",
+    explain:"去重的`key`",
     type:'string'
   },
   {
@@ -369,7 +350,7 @@ const debounceData = [
   },
   {
     name:"delay",
-    explain:"防抖时间ms",
+    explain:"防抖时间`ms`",
     type:'number'
   },
   {
@@ -381,7 +362,7 @@ const debounceData = [
 const base64ToFileData = [
   {
     name:"urlData",
-    explain:"base64数据",
+    explain:"`base64`数据",
     type:'string'
   },
   {
@@ -398,7 +379,7 @@ const base64ToFileData = [
 const fileToBase64Data = [
   {
     name:'file',
-    explain:'file文件对象',
+    explain:'`file`文件对象',
     type:"File"
   },
   {
@@ -498,7 +479,7 @@ const throttleData = [
   },
   {
     name:"delay",
-    explain:"节流时间ms",
+    explain:"节流时间`ms`",
     type:'number'
   },
   {
@@ -566,7 +547,7 @@ const randomIntervalData = [
   },
   {
     name:"return",
-    explain:"返回值 介于min和max之间的随机数",
+    explain:"返回值介于`min`和`max`之间的随机数",
     type:'number'
   }
 ]

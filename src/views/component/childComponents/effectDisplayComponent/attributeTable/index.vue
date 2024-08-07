@@ -58,13 +58,13 @@ const attributesData = [
   },
   {
     name: 'promptTopOffset',
-    explain: '类型提示Tooltip距离顶部的偏移量',
+    explain: '类型提示`Tooltip`距离顶部的偏移量',
     type: 'number',
     default:"5",
   },
   {
     name:"promptXOffset",
-    explain:"类型提示Tooltip距离左侧的偏移量",
+    explain:"类型提示`Tooltip`距离左侧的偏移量",
     type:"number",
     default:"0"
   },

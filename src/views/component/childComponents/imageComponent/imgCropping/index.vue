@@ -53,7 +53,7 @@ const catalogue = [
   },
   {
     title:"上传base64数据",
-    explain:"用于图片数据需要使用base64格式进行数据上传情况",
+    explain:"用于图片数据需要使用`base64`格式进行数据上传情况",
     id:"fa1d5d2966d8618459a6c8ec33bfa7cb",
     slot:"uploadBase64"
   },

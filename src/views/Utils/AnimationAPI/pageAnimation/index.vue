@@ -97,12 +97,12 @@ const setAnimationListConfigData = [
 const animationObserverData = [
   {
     name:"observerId",
-    explain:"需要进行监听交叉操作的元素ID",
+    explain:"需要进行监听交叉操作的元素`id`",
     type:"string"
   },
   {
     name:"elementIDList",
-    explain:"所有需要操作的元素id",
+    explain:"所有需要操作的元素`id`",
     type:[
       {
         value:"Array",
@@ -112,7 +112,7 @@ const animationObserverData = [
   },
   {
     name:"currentPlatingElement",
-    explain:"当前页面的id和根元素id(app)",
+    explain:"当前页面的id和根元素`id(app)`",
     type:[
       {
         value:"currentPlatingElement",

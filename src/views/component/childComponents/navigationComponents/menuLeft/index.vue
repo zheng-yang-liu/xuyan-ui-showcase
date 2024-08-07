@@ -204,13 +204,13 @@ const attributesData = [
   },
   {
     name: "isTheHeightSet",
-    explain: "是否自动设置menuLeft的高度",
+    explain: "是否自动设置`menuLeft`的高度",
     type: "boolean",
     default: "false"
   },
   {
     name:"needPath",
-    explain:"是否需要path",
+    explain:"是否需要`path`",
     type:"boolean",
     default:"true"
   },
@@ -254,7 +254,7 @@ const attributesData = [
   },
   {
     name:"initByRouter",
-    explain:"根据路由初始化currentID",
+    explain:"根据路由初始化`currentID`",
     type:"boolean",
     default:"false"
   },

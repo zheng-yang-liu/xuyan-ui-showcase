@@ -59,7 +59,7 @@ const catalogue = [
     title:'自定义图形',
     id:"6f367e97d08f62052546a55ba8475d29",
     slot:'customizeGraphics',
-    explain:'自定义图形,通过继承Graph类，编写自定义draw、isInside方法，实现绘制自定义图形，本例的椭圆为自定图形'
+    explain:'自定义图形,通过继承`Graph类`，编写自定义`draw`、`isInside`方法，实现绘制自定义图形，本例的椭圆为自定图形'
   },
   {
     title: '工具类',
@@ -87,7 +87,7 @@ const catalogue = [
     title:"GraphExample",
     id:"c33f2dbbb280611235f89e7f044bc18d",
     slot:"GraphExample",
-    explain:"通过继承Graph类，实现自定义椭圆图形"
+    explain:"通过继承`Graph类`，实现自定义椭圆图形"
   }
 ]
 const DrawGraphData = [
@@ -145,7 +145,7 @@ const DrawGraphData = [
   },
   {
     name:"downloadCanvas",
-    explain:"下载canvas",
+    explain:"下载`canvas`",
     type:[
       {
         value:"Function",
@@ -239,7 +239,7 @@ const GraphData = [
   },
   {
     name:"_ctx",
-    explain:"canvas上下文",
+    explain:"`canvas`上下文",
     type:[
       {
         value:"CanvasRenderingContext2D",

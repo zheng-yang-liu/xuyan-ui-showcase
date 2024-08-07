@@ -60,7 +60,7 @@ const attributesData = [
   },
   {
     name:"effectHeight",
-    explain:"效果区域minHeight",
+    explain:"效果区域`minHeight`",
     type:"number",
   }
 

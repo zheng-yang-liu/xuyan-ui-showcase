@@ -82,7 +82,7 @@ const attributesData = [
   },
   {
     name:"animationType",
-    explain:"缓动函数 string类型可以设置为steps(n, start | end) 或者 cubic-bezier(n1, n2, n3, n4)",
+    explain:"缓动函数 string类型可以设置为`steps(n, start | end)` 或者 `cubic-bezier(n1, n2, n3, n4)`",
     type:[
       {
         value:"animationType",
