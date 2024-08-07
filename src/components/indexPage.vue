@@ -72,6 +72,7 @@ const props = defineProps({
 const pageCssValue = ref({
   "--page-padding-left": "54px",
   "--tabBar-padding-leftAndRight": "20px",
+  "--wrapper-overflow-y":"auto"
 })
 const targetWidth = 865;
 const direction = ref(window.innerWidth >= targetWidth?'horizontal':'vertical');
@@ -93,13 +94,15 @@ const setArrange = ()=>{
   const width = window.innerWidth;
   if(width<targetWidth){
     direction.value = 'vertical'
-    pageCssValue.value['--page-padding-left']='5px'
-    pageCssValue.value['--tabBar-padding-leftAndRight']='15px'
+    pageCssValue.value['--page-padding-left']='10px'
+    pageCssValue.value['--tabBar-padding-leftAndRight']='20px'
+    pageCssValue.value['--wrapper-overflow-y']='visible'
 
   }else{
     direction.value = 'horizontal'
     pageCssValue.value['--page-padding-left']='54px'
     pageCssValue.value['--tabBar-padding-leftAndRight']='20px'
+    pageCssValue.value['--wrapper-overflow-y']='auto'
   }
 }
 const closeTime = 150;
@@ -169,7 +172,7 @@ onBeforeUnmount(()=>{
   @include display-flex();
   border-bottom: 1px #dedfe3 solid;
   background-color: white;
-  padding: 0 15px;
+  padding: 0 20px;
   &:hover{
     cursor: pointer;
   }
@@ -184,7 +187,7 @@ onBeforeUnmount(()=>{
   width: 100%;
   height: 100%;
   padding: 10px 10px 0 10px;
-  overflow-y: auto;
+  overflow-y: var(--wrapper-overflow-y);
   .main-inner{
     padding: 64px 0 48px var(--page-padding-left);
   }

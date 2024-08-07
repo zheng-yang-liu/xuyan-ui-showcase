@@ -10,6 +10,33 @@
           <basicUsage></basicUsage>
         </xy-effect-preview>
       </template>
+      <template #inputIcon>
+        <xy-effect-preview :code="inputIconText">
+          <inputIcon></inputIcon>
+        </xy-effect-preview>
+      </template>
+      <template #inputClear>
+        <xy-effect-preview :code="inputClearText">
+          <inputClear></inputClear>
+        </xy-effect-preview>
+      </template>
+      <template #inputTextarea>
+        <xy-effect-preview :code="inputTextareaText">
+          <inputTextarea></inputTextarea>
+        </xy-effect-preview>
+      </template>
+      <template #password>
+        <xy-effect-preview :code="passwordText">
+          <password></password>
+        </xy-effect-preview>
+      </template>
+      <template #inputSlot>
+        <xy-effect-preview :code="inputSlotText">
+          <inputSlot></inputSlot>
+        </xy-effect-preview>
+      </template>
+
+
       <template #Attributes>
         <xy-attribute-table :data="attributesData"></xy-attribute-table>
       </template>
@@ -27,12 +54,46 @@
 <script setup lang="ts">
 import basicUsage from "./basicUsage.vue"
 import basicUsageText from "./basicUsage.vue?raw"
+import inputIcon from "./inputIcon.vue"
+import inputIconText from "./inputIcon.vue?raw"
+import inputClear from "./inputClear.vue"
+import inputClearText from "./inputClear.vue?raw"
+import inputTextarea from "./inputTextarea.vue"
+import inputTextareaText from "./inputTextarea.vue?raw"
+import password from "./password.vue"
+import passwordText from "./password.vue?raw"
+import inputSlot from "./inputSlot.vue"
+import inputSlotText from "./inputSlot.vue?raw"
 
 const catalogue = [
   {
     title: '基础用法',
     id: '837c3524ab84a9ae1663d4d6b3379323',
     slot: 'basicUsage'
+  },
+  {
+    title:"输入框图标",
+    id:"d6015ca872c645fb92af24b88e37d5ba",
+    slot:"inputIcon",
+    explain:"可以设置输入框的前置图标和后置图标，以及点击事件"
+  },
+  {
+    title:'一键清空',
+    id:'b93c789688567beb8d970d81c24555e2',
+    slot:'inputClear',
+    explain:'clearable属性可以让输入框一键清空已经输入的内容'
+  },
+  {
+    title:'密码框',
+    id:'8ed9eb821d731adf05cc88ce3713601d',
+    slot:'password',
+    explain:'password属性可以让输入框变成密码框'
+  },
+  {
+    title:"文本框slot",
+    id:"43df4f5f467cf16f1dc11d3f62c1f726",
+    slot:"inputSlot",
+    explain: "可以设置输入框的前置slot--prepend和后置slot--append，以及点击事件"
   },
   {
     title: 'API',
@@ -60,6 +121,12 @@ const attributesData = [
   {
     name: 'width',
     explain: '宽度',
+    type: 'number',
+    default:'0'
+  },
+  {
+    name: 'maxWidth',
+    explain: '最大宽度',
     type: 'number',
     default:'0'
   },
@@ -260,7 +327,3 @@ const slotsData = [
   }
 ]
 </script>
-
-<style scoped lang="scss">
-
-</style>
