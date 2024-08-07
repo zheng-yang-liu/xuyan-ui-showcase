@@ -206,7 +206,7 @@ const attributesData = [
   },
   {
     name:"textChangeSize",
-    explain:"textarea尺寸的改变方式,none--不允许调整、both--允许任意调整、horizontal--允许水平调整、vertical--允许垂直调整",
+    explain:"textarea尺寸的改变方式,`none`不允许调整、`both`允许任意调整、`horizontal`允许水平调整、`vertical`允许垂直调整",
     type:[
       {
         value:"textChangeSizeType",
