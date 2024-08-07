@@ -151,10 +151,7 @@ const scrollToTop = () => {
 const route = useRoute()
 watch(()=>route.path,()=>{
   if(direction.value==='vertical')return
-  mainWrapper.value?.scrollTo({
-    top: 0,
-    behavior: 'smooth' // 平滑滚动
-  })
+  mainWrapper.value?.scrollTo(0,0)
 })
 onMounted(()=>{
   setArrange()
