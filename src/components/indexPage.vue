@@ -23,6 +23,9 @@
         <div @click="showMenu = true">
           <xy-icon icon="iconfont icon-caidan"></xy-icon>菜单
         </div>
+        <div @click="scrollToTop" style="margin-left: auto">
+          返回顶部<xy-icon icon="iconfont icon-fanhuidingbu" :icon-style="{marginLeft:'5px'}"></xy-icon>
+        </div>
         <div
           v-if="showMenu"
           @click="closeMenu"
@@ -39,13 +42,13 @@
             :menuLeftStyle="[{backgroundColor: 'white',padding:'0 20px'},animationLeftStyle]"
           >
           </xy-menu-left>
-          <div class="menuLeftMask" :style="animationMenuMaskStyle"></div>
+          <div v-if="showMenu" class="menuLeftMask" :style="animationMenuMaskStyle">{{showMenu}}</div>
 
         </div>
       </div>
     </template>
     <template #main>
-      <div class="main-wrapper">
+      <div class="main-wrapper"  ref="mainWrapper">
         <div class="main-inner">
           <router-view></router-view>
         </div>
@@ -58,6 +61,7 @@
 import { ref ,onMounted,onBeforeUnmount,watch } from 'vue'
 import tabBar from "@/components/tabBar.vue"
 import {AnimationUtils} from "yanyan-ui";
+import {useRoute}from"vue-router"
 const props = defineProps({
   currentIndex:{
     type:Number,
@@ -77,6 +81,7 @@ const pageCssValue = ref({
 const targetWidth = 865;
 const direction = ref(window.innerWidth >= targetWidth?'horizontal':'vertical');
 const showMenu = ref(window.innerWidth >= targetWidth);
+const mainWrapper = ref<HTMLElement|null>(null);
 const selectStyle = {
   backgroundColor: '#ecf5ff',
   color: '#409eff',
@@ -97,12 +102,13 @@ const setArrange = ()=>{
     pageCssValue.value['--page-padding-left']='10px'
     pageCssValue.value['--tabBar-padding-leftAndRight']='20px'
     pageCssValue.value['--wrapper-overflow-y']='visible'
-
+    showMenu.value = false;
   }else{
     direction.value = 'horizontal'
     pageCssValue.value['--page-padding-left']='54px'
     pageCssValue.value['--tabBar-padding-leftAndRight']='20px'
     pageCssValue.value['--wrapper-overflow-y']='auto'
+    showMenu.value = true;
   }
 }
 const closeTime = 150;
@@ -136,10 +142,22 @@ watch(()=>showMenu.value,(NewVal)=>{
     },"ease")
   }
 })
-
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // 平滑滚动
+  });
+}
+const route = useRoute()
+watch(()=>route.path,()=>{
+  if(direction.value==='vertical')return
+  mainWrapper.value?.scrollTo({
+    top: 0,
+    behavior: 'smooth' // 平滑滚动
+  })
+})
 onMounted(()=>{
   setArrange()
-  window.addEventListener('resize',setArrange)
 })
 onBeforeUnmount(()=>{
   window.removeEventListener('resize',setArrange)

@@ -203,7 +203,28 @@ const routes= [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0,};
+    }
+  },
+});
+router.beforeEach((to, from, next) => {
+  // 在路由切换之前执行的函数
+  // console.log('切换路由，从:', from.path, '到:', to.path);
+
+  // 执行某些操作，比如权限检查
+  // if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' });
+  // else next();
+
+  // 继续路由切换
+  next();
 });
 
+router.afterEach((to, from) => {
+  // 在路由切换之后执行的函数
+});
 export default router
