@@ -51,7 +51,7 @@ const attributesData = [
           id: string;
           title: string;
           slot?: string;
-          explain?: string;
+          explain?: string | string[];
           children?: catalogue[];
         }`
       }

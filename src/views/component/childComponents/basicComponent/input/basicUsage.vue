@@ -5,10 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import {ref, reactive} from "vue";
+import {ref} from "vue";
 const testValue = ref<string>('');
 </script>
-
-<style scoped lang="scss">
-
-</style>

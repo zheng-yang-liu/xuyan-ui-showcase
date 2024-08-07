@@ -61,8 +61,11 @@ const testValue5 = ref<string>('');
 </script>
 
 <style scoped lang="scss">
-@import "mixin.scss";
 .inputList{
-  @include layout;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  .xy-input{
+    margin: 10px 0;
+  }
 }
 </style>

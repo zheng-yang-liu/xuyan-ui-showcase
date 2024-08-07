@@ -1,7 +1,0 @@
-@mixin layout(){
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  .xy-input{
-    margin: 10px 0;
-  }
-}
