@@ -81,19 +81,19 @@ const catalogue = [
     title:'一键清空',
     id:'b93c789688567beb8d970d81c24555e2',
     slot:'inputClear',
-    explain:'clearable属性可以让输入框一键清空已经输入的内容'
+    explain:'`clearable`属性可以让输入框一键清空已经输入的内容'
   },
   {
     title:'密码框',
     id:'8ed9eb821d731adf05cc88ce3713601d',
     slot:'password',
-    explain:'password属性可以让输入框变成密码框'
+    explain:'`password`属性可以让输入框变成密码框'
   },
   {
     title:"文本框slot",
     id:"43df4f5f467cf16f1dc11d3f62c1f726",
     slot:"inputSlot",
-    explain: "可以设置输入框的前置slot--prepend和后置slot--append，以及点击事件"
+    explain: "可以设置输入框的前置插槽`prepend`和后置插槽`append`，以及点击事件"
   },
   {
     title: 'API',
@@ -209,7 +209,7 @@ const attributesData = [
     explain:"textarea尺寸的改变方式,`none`不允许调整、`both`允许任意调整、`horizontal`允许水平调整、`vertical`允许垂直调整",
     type:[
       {
-        value:"textChangeSizeType",
+        value:"sizeType",
         complexType: "'none' | 'both' | 'horizontal'|'vertical'"
       }
     ],

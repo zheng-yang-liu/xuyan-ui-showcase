@@ -163,7 +163,7 @@ const attributesData = [
 const eventsData = [
   {
     name: 'handleClose',
-    explain: '关闭事件,flag-0:右上角关闭/外部 -1:取消 1:确定',
+    explain: '关闭事件,`flag=0`右上角关闭/外部 `flag=-1`取消 `flag=1`确定',
     type: [
       {
         value:"Function",

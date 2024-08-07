@@ -92,7 +92,7 @@ const attributesData = [
   },
   {
     name:"uploadParamIsFile",
-    explain:"上传参数是否为file类型",
+    explain:"上传参数是否为`file`类型",
     type:"boolean",
     default:"true"
   },

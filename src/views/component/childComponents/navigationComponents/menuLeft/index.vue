@@ -166,7 +166,7 @@ const attributesData = [
   },
   {
     name:"selfJump",
-    explain:"是否采用自身的跳转方式(router.push),false时父组件需@click处理点击事件",
+    explain:"是否采用自身的跳转方式`router.push`,false时父组件需`@click`处理点击事件",
     type:"boolean",
     default:"true"
   },

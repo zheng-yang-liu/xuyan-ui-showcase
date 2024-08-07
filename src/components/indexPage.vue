@@ -158,6 +158,7 @@ watch(()=>route.path,()=>{
 })
 onMounted(()=>{
   setArrange()
+  window.addEventListener('resize',setArrange)
 })
 onBeforeUnmount(()=>{
   window.removeEventListener('resize',setArrange)
