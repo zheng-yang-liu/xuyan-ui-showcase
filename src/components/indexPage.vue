@@ -95,39 +95,41 @@ const menuLeftWidth = 220;
 const animationLeftStyle = ref({
   transform: `translateX(-${menuLeftWidth}px)`
 })
-const tempTagA = document.createElement('a');
-const setArrange = ()=>{
+const setArrange = () => {
   const width = window.innerWidth;
-  if(width<targetWidth){
-    direction.value = 'vertical'
-    pageCssValue.value['--page-padding-left']='10px'
-    pageCssValue.value['--tabBar-padding-leftAndRight']='20px'
-    pageCssValue.value['--wrapper-overflow-y']='visible'
-    showMenu.value = false
-    const currentTitleId = Tools.getCssVar('--current-titleID')
-    if(currentTitleId){
-      const tempATag = document.createElement('a')
-      tempATag.href = `#${currentTitleId}`
-      setTimeout(()=>{
-        tempATag.click();
-      },0)
-    }
-  }else{
-    direction.value = 'horizontal'
-    pageCssValue.value['--page-padding-left']='54px'
-    pageCssValue.value['--tabBar-padding-leftAndRight']='20px'
-    pageCssValue.value['--wrapper-overflow-y']='auto'
-    showMenu.value = true
-    const currentTitleId = Tools.getCssVar('--current-titleID')
-    if(currentTitleId){
-      tempTagA.href = `#${currentTitleId}`
-      setTimeout(()=>{
-        tempTagA.click()
-      },0)
+  const currentTitleId = Tools.getCssVar('--current-titleID');
 
+  if (width < targetWidth) {
+    if (currentTitleId && direction.value === 'horizontal') {
+      const targetElement = document.getElementById(currentTitleId);
+      if (targetElement) {
+        setTimeout(() => {
+          targetElement.scrollIntoView();
+        }, 0);
+      }
     }
+    direction.value = 'vertical';
+    pageCssValue.value['--page-padding-left'] = '10px';
+    pageCssValue.value['--tabBar-padding-leftAndRight'] = '20px';
+    pageCssValue.value['--wrapper-overflow-y'] = 'visible';
+    showMenu.value = false;
+  } else {
+    if (currentTitleId && direction.value === 'vertical') {
+      const targetElement = document.getElementById(currentTitleId);
+      if (targetElement) {
+        setTimeout(() => {
+          targetElement.scrollIntoView();
+        }, 0);
+      }
+    }
+    direction.value = 'horizontal';
+    pageCssValue.value['--page-padding-left'] = '54px';
+    pageCssValue.value['--tabBar-padding-leftAndRight'] = '20px';
+    pageCssValue.value['--wrapper-overflow-y'] = 'auto';
+    showMenu.value = true;
   }
-}
+};
+
 const closeTime = 150;
 const openTime = 350;
 const closeMenu = ()=>{
