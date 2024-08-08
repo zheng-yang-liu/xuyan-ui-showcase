@@ -20,12 +20,11 @@
 import {ref} from "vue";
 import {Tools} from "yanyan-ui";
 import {rawData} from "./rawData"
-const formatData = JSON.stringify(rawData, null, 2)
 const showUpData = ref(false)
 const showUpdatedList = ref('')
 
 const active = ()=>{
-  const lookup = Tools.deepLookup(rawData,item=>item.address==="长安区")
+  const lookup = Tools.deepLookup(rawData,(item:any)=>item.address==="长安区")
   showUpdatedList.value = JSON.stringify(lookup, null, 2)
   showUpData.value = true
 }
@@ -33,11 +32,12 @@ const active = ()=>{
 
 <style scoped lang="scss">
 .list{
-  display:flex;
-  justify-content:space-between;
+  display: grid;
+  grid-template-columns:repeat(auto-fill,minmax(400px,1fr));
   .item{
-    width:47%;
+    width:100%;
     div{
+      max-width: 400px;
       height: 32px;
       line-height: 32px;
       text-align:center;
@@ -45,6 +45,9 @@ const active = ()=>{
       div{
         margin-left: 5px;
       }
+    }
+    ::v-deep(pre){
+       max-width: 400px;
     }
   }
 }

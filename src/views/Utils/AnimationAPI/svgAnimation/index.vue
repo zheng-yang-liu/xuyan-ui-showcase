@@ -43,7 +43,7 @@ const catalogue = [
 const attributesData = [
   {
     name: 'time',
-    explain: '动画时间',
+    explain: '动画时间`s`',
     type: 'number',
     default: "2",
   },

@@ -13,6 +13,9 @@
       <template #Attributes>
         <xy-attribute-table :data="attributesData"></xy-attribute-table>
       </template>
+      <template #Emits>
+        <xy-attribute-table :data="emitsData" :columns-no-default="true"></xy-attribute-table>
+      </template>
 
     </xy-showcase-page>
   </div>
@@ -36,6 +39,11 @@ const catalogue = [
         title: "Attributes",
         id: "8cf4ee797569ebd670ff2a027e21555a",
         slot: "Attributes"
+      },
+      {
+        title: "Emits",
+        id: "cbf99ccca884ce3bc38fb3bf4a0c0309",
+        slot: "Emits"
       }
     ]
   }
@@ -90,10 +98,21 @@ const attributesData = [
     explain:"只有全屏状态下才显示目录",
     type:"boolean",
     default:"false"
+  },
+  {
+    name:"currentTitleID",
+    explain:"当前标题ID,可以通过`getCssVar('--current-titleID')`全局获取",
+    type:"string",
   }
 
 ]
-
+const emitsData = [
+  {
+    name: 'update:currentTitleID',
+    explain: '更新当前标题ID',
+    type: 'string'
+  }
+]
 const toImgCropping = ()=>{
   router.push('/component/imgCropping');
 }
