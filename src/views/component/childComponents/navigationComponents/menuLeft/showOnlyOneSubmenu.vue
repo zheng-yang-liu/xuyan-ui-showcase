@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex">
+  <div class="showALl">
     <div>
       <xy-menu-left
         :menuItems="menuItems"
@@ -7,18 +7,18 @@
         :showOnlyOneSubmenu="false"
       >
         <template #logo>
-          <p style="padding: 10px 0">不隐藏已打开的子菜单项</p>
+          <p>不隐藏已打开的子菜单项</p>
         </template>
       </xy-menu-left>
     </div>
 
-    <div style="margin-left: 50px">
+    <div>
       <xy-menu-left
         :menuItems="menuItems"
         :isTheHeightSet="false"
       >
         <template #logo>
-          <p style="padding: 10px 0">隐藏已打开的子菜单项</p>
+          <p>隐藏已打开的子菜单项</p>
         </template>
       </xy-menu-left>
     </div>
@@ -97,5 +97,11 @@ const menuItems = [
 </script>
 
 <style scoped lang="scss">
-
+.showALl{
+  display: grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  p{
+    padding: 10px 0;
+  }
+}
 </style>
