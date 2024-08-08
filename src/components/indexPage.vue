@@ -60,7 +60,7 @@
 <script lang="ts" setup>
 import { ref ,onMounted,onBeforeUnmount,watch } from 'vue'
 import tabBar from "@/components/tabBar.vue"
-import {AnimationUtils} from "yanyan-ui";
+import {AnimationUtils,Tools} from "yanyan-ui";
 import {useRoute}from"vue-router"
 const props = defineProps({
   currentIndex:{
@@ -95,6 +95,7 @@ const menuLeftWidth = 220;
 const animationLeftStyle = ref({
   transform: `translateX(-${menuLeftWidth}px)`
 })
+const tempTagA = document.createElement('a');
 const setArrange = ()=>{
   const width = window.innerWidth;
   if(width<targetWidth){
@@ -102,13 +103,29 @@ const setArrange = ()=>{
     pageCssValue.value['--page-padding-left']='10px'
     pageCssValue.value['--tabBar-padding-leftAndRight']='20px'
     pageCssValue.value['--wrapper-overflow-y']='visible'
-    showMenu.value = false;
+    showMenu.value = false
+    const currentTitleId = Tools.getCssVar('--current-titleID')
+    if(currentTitleId){
+      const tempATag = document.createElement('a')
+      tempATag.href = `#${currentTitleId}`
+      setTimeout(()=>{
+        tempATag.click();
+      },0)
+    }
   }else{
     direction.value = 'horizontal'
     pageCssValue.value['--page-padding-left']='54px'
     pageCssValue.value['--tabBar-padding-leftAndRight']='20px'
     pageCssValue.value['--wrapper-overflow-y']='auto'
-    showMenu.value = true;
+    showMenu.value = true
+    const currentTitleId = Tools.getCssVar('--current-titleID')
+    if(currentTitleId){
+      tempTagA.href = `#${currentTitleId}`
+      setTimeout(()=>{
+        tempTagA.click()
+      },0)
+
+    }
   }
 }
 const closeTime = 150;

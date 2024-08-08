@@ -7,17 +7,17 @@
     >
       <template #basicUsage>
         <xy-effect-preview :code="basicUsageText" :effect-height="200">
-            <basicUsage></basicUsage>
+          <basicUsage></basicUsage>
         </xy-effect-preview>
       </template>
       <template #topLogo>
         <xy-effect-preview :code="topLogoText" :effect-height="200">
-            <topLogo></topLogo>
+          <topLogo></topLogo>
         </xy-effect-preview>
       </template>
       <template #preIcon>
         <xy-effect-preview :code="preIconText" :effect-height="200">
-            <pre-icon></pre-icon>
+          <pre-icon></pre-icon>
         </xy-effect-preview>
       </template>
       <template #showOnlyOneSubmenu>
