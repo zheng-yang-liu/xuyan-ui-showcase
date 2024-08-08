@@ -1,7 +1,7 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction="用于对图片的裁剪"
+      introduction="用于对图片的裁剪，点击确定后默认不会立即关闭，等待网络请求返回后再关闭或使用`@confirmReturn`回调进行请求处理"
       page-title="图像裁剪"
       :catalogue="catalogue"
     >
@@ -110,7 +110,7 @@ const attributesData = [
   },
   {
     name:"immediateClose",
-    explain:"是否立即关闭",
+    explain:"是否立即关闭,等待网络请求返回后再关闭",
     type:"boolean",
     default:"false"
   }

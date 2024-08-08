@@ -73,7 +73,15 @@ const attributesData = [
   {
     name: 'introduction',
     explain: '页面介绍',
-    type: 'string',
+    type: [
+      {
+        value:"string"
+      },
+      {
+        value:"Array",
+        complexType:"string[]"
+      }
+    ],
   },
   {
     name:"showCatalogue",
