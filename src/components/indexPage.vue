@@ -97,31 +97,26 @@ const animationLeftStyle = ref({
 })
 const setArrange = () => {
   const width = window.innerWidth;
-  const currentTitleId = Tools.getCssVar('--current-titleID');
-
-  if (width < targetWidth) {
-    if (currentTitleId && direction.value === 'horizontal') {
-      const targetElement = document.getElementById(currentTitleId);
-      if (targetElement) {
-        setTimeout(() => {
-          targetElement.scrollIntoView();
-        }, 0);
-      }
+  function scrollIntiView(){
+    const currentTitleId = Tools.getCssVar('--current-titleID');
+    const targetElement = document.getElementById(currentTitleId);
+    if (targetElement && currentTitleId) {
+      setTimeout(() => {
+        targetElement.scrollIntoView();
+      }, 0);
     }
+  }
+  if (width < targetWidth) {
+    if (direction.value === 'horizontal')
+      scrollIntiView()
     direction.value = 'vertical';
     pageCssValue.value['--page-padding-left'] = '10px';
     pageCssValue.value['--tabBar-padding-leftAndRight'] = '20px';
     pageCssValue.value['--wrapper-overflow-y'] = 'visible';
     showMenu.value = false;
   } else {
-    if (currentTitleId && direction.value === 'vertical') {
-      const targetElement = document.getElementById(currentTitleId);
-      if (targetElement) {
-        setTimeout(() => {
-          targetElement.scrollIntoView();
-        }, 0);
-      }
-    }
+    if (direction.value === 'vertical')
+      scrollIntiView()
     direction.value = 'horizontal';
     pageCssValue.value['--page-padding-left'] = '54px';
     pageCssValue.value['--tabBar-padding-leftAndRight'] = '20px';
