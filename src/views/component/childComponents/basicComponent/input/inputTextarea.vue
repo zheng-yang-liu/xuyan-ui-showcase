@@ -11,7 +11,7 @@
     <div>
       多行文本不允许调整
       <xy-input
-        v-model="testValue3"
+        v-model="testValue2"
         placeholder="请输入"
         textarea
         textChangeSize="none"
@@ -20,7 +20,7 @@
     <div>
       多行文本允许水平
       <xy-input
-        v-model="testValue4"
+        v-model="testValue3"
         placeholder="请输入"
         textarea
         textChangeSize="horizontal"
@@ -29,7 +29,7 @@
     <div>
       多行文本允许垂直
       <xy-input
-        v-model="testValue5"
+        v-model="testValue4"
         placeholder="请输入"
         textarea
         textChangeSize="vertical"
@@ -38,7 +38,7 @@
     <div>
       多行自动高度
       <xy-input
-        v-model="testValue"
+        v-model="testValue5"
         placeholder="请输入文字"
         height="50"
         width="240"

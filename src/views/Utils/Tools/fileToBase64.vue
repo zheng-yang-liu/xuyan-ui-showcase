@@ -9,7 +9,7 @@ import {Tools} from "yanyan-ui";
 const getFile = ()=>{
   const input = document.createElement('input');
   input.type = 'file';
-  input.onchange = (e)=>{
+  input.onchange = (e:any)=>{
     const file = e.target.files[0];
     Tools.fileToBase64(file,(baseStr)=>{
       console.log('file\n',file);
