@@ -317,12 +317,12 @@ const eventsData = [
 const slotsData = [
   {
     name: 'prepend',
-    explain: '前置slot',
+    explain: '前置slot，只对单行文本框有效',
     type: 'slot',
   },
   {
     name: 'append',
-    explain: '后置slot',
+    explain: '后置slot，只对单行文本框有效',
     type: 'slot',
   }
 ]

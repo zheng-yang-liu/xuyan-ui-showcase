@@ -13,6 +13,7 @@
             :isTheHeightSet="true"
             :menuItems="menuItems"
             :select-style="selectStyle"
+            :mouseOverStyle="mouseOverStyle"
             :menuLeftStyle="{backgroundColor: 'white'}"
           >
           </xy-menu-left>
@@ -39,6 +40,7 @@
             :isTheHeightSet="true"
             :menuItems="menuItems"
             :select-style="selectStyle"
+            :mouseOverStyle="mouseOverStyle"
             :menuLeftStyle="[{backgroundColor: 'white',padding:'0 20px'},animationLeftStyle]"
           >
           </xy-menu-left>
@@ -78,6 +80,9 @@ const pageCssValue = ref({
   "--tabBar-padding-leftAndRight": "20px",
   "--wrapper-overflow-y":"auto"
 })
+const mouseOverStyle = {
+  color: '#409eff'
+}
 const targetWidth = 865;
 const direction = ref(window.innerWidth >= targetWidth?'horizontal':'vertical');
 const showMenu = ref(window.innerWidth >= targetWidth);
