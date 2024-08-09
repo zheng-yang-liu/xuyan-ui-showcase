@@ -69,7 +69,6 @@ const action = () => {
 }
 
 onMounted(()=>{
-  console.log(window.innerWidth)
 })
 </script>
 
