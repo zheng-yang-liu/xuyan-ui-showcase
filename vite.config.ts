@@ -35,7 +35,7 @@ export default ({command, mode}: ConfigEnv) => {
       }
     },
     server:{
-      host:"10.3.197.142",
+      host:"10.3.197.176",
       port:8999,
       proxy: {
         '/api': {

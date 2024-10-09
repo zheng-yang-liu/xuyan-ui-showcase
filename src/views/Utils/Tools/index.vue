@@ -15,6 +15,18 @@
           :columns-no-default="true"
         ></xy-attribute-table>
       </template>
+
+      <template #convertDateFormatByTemplate>
+        <xy-effect-preview :code="convertDateFormatByTemplateText">
+          <convertDateFormatByTemplate></convertDateFormatByTemplate>
+        </xy-effect-preview>
+
+        <xy-attribute-table
+          :data="convertDateFormatByTemplateData"
+          :columns-no-default="true"
+        ></xy-attribute-table>
+      </template>
+
       <template #groupBy>
         <xy-effect-preview :code="groupByText">
           <groupBy></groupBy>
@@ -138,6 +150,8 @@
 <script setup lang="ts">
 import convertTimeFormat from"./convertTimeFormat.vue"
 import convertTimeFormatText from"./convertTimeFormat.vue?raw"
+import convertDateFormatByTemplate from"./convertDateFormatByTemplate.vue"
+import convertDateFormatByTemplateText from"./convertDateFormatByTemplate.vue?raw"
 import groupBy from"./groupBy.vue"
 import groupByText from"./groupBy.vue?raw"
 import deepCopy from"./deepCopy.vue"
@@ -171,6 +185,13 @@ const catalogue = [
     id: 'a19d557bcfd6b073227b7bb4f6064d1e',
     slot: 'convertTimeFormat',
     explain:"convertTimeFormat"
+  },
+  {
+    title:"根据模板转换日期格式",
+    id:"86ca20608c2396fae74a1ac42bb0f6a5",
+    slot:'convertDateFormatByTemplate',
+    explain:"convertDateFormatByTemplate 可以输出任意格式的日期`YYYY?MM?DD`"
+
   },
   {
     title:"数组分类",
@@ -266,6 +287,23 @@ const convertTimeFormatData = [
         complexType:'formatDateNum | Date | number'
       }
     ],
+  }
+]
+const convertDateFormatByTemplateData = [
+  {
+    name:"date",
+    explain:"日期字符串 年月日之间必须有任意非数字分隔符",
+    type:'string'
+  },
+  {
+    name:"targetFormat",
+    explain:"目标的日期格式 `YYYY?MM?DD``?`可以用任意字符替换",
+    type:'string'
+  },
+  {
+    name:"return",
+    explain:"返回值",
+    type:'string'
   }
 ]
 const groupByData = [
