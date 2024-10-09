@@ -1,7 +1,7 @@
 <template>
   <div>
     <xy-showcase-page
-      introduction="提供图标使用"
+      introduction="提供常用图标进行使用，点图图标复制代码"
       page-title="图标"
       :catalogue="catalogue"
     >
@@ -46,7 +46,6 @@ const catalogue = [
         title: "Attributes",
         id: "6eb98b65f947bc47194b8304a1e205ee",
         slot: "Attributes",
-        explain:"提供常用图标进行使用，点图图标复制代码"
       }
     ]
   }
