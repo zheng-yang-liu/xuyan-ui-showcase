@@ -11,7 +11,7 @@
     </div>
 
     <div class="afterItem">
-      <p>转换前的时间格式：<code>{{date}}</code> </p>
+      <p>转换前的时间格式：<code>2024.10</code> </p>
       <p>转换后的的时间格式(YYYY年MM月)：<code>{{ afterFormatDateNum }}</code></p>
     </div>
 
@@ -27,7 +27,8 @@ const afterDate = Tools.convertDateFormatByTemplate(date,'YYYY-MM-DD');
 
 const afterTimeStamp = Tools.convertDateFormatByTemplate(date,"YYYY[ MM ]DD");
 
-const afterFormatDateNum = Tools.convertDateFormatByTemplate(date,"YYYY年MM月");
+const afterFormatDateNum = Tools.convertDateFormatByTemplate('2024.10',"YYYY年MM月");
+// const afterFormatDateNum = Tools.convertDateFormatByTemplate(date,"YYYY年MM月");
 
 
 </script>
