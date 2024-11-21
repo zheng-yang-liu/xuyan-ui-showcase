@@ -53,7 +53,7 @@ const attributesData = [
     type: [
       {
         value:"timingFunction",
-        complexType:"'ease' | 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'step-start' | 'step-end' | string"
+        complexType:"'ease' | 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'step-start' | 'step-end' | 'steps(n, start | end)' | 'cubic-bezier(n1, n2, n3, n4)'"
       }
     ],
     default: "ease",

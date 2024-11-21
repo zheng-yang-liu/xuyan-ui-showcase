@@ -86,7 +86,7 @@ const attributesData = [
     type:[
       {
         value:"animationType",
-        complexType:"'linear' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'step-start' | 'step-end' | 'ease' | string | (t: number) => number",
+        complexType:"'linear' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'step-start' | 'step-end' | 'ease' | 'steps(n, start | end)' | 'cubic-bezier(n1, n2, n3, n4)' | (t: number) => number",
       }
     ],
     default:"'linear'"
