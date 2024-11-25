@@ -2,12 +2,17 @@ import { fileURLToPath, URL } from 'node:url'
 
 import {ConfigEnv, defineConfig, loadEnv} from 'vite'
 import vue from '@vitejs/plugin-vue'
+import {codeInspectorPlugin} from "code-inspector-plugin";
 
 export default ({command, mode}: ConfigEnv) => {
   const env = loadEnv(mode, process.cwd());
   return defineConfig({
     plugins: [
       vue(),
+      codeInspectorPlugin({
+        bundler: 'vite',
+        showSwitch: true
+      }),
     ],
     build:{
       rollupOptions: {

@@ -27,7 +27,7 @@ const props = defineProps({
 const tabList = [
   // {name:'指南',path:''},
   {name:'组件',path:'/component/componentBasics/installOrUse'},
-  {name:'工具',path:'/Utils/installOrUse'}
+  {name:'工具',path:'/Utils/utilsInstallOrUse'}
 ]
 const router = useRouter()
 

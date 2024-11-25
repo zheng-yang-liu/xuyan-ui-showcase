@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import {useRouter}from"vue-router"
 const router = useRouter()
-import page1 from "@/views/pageEffects/effects/page1.vue?raw"
+import page1 from "@/views/pageEffects/page1/index.vue?raw"
 import attributesType from "./attributesType?raw"
 const catalogue = [
   {

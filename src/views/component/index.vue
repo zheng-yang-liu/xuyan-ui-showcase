@@ -22,7 +22,7 @@ const menuItems = [
       {
         title: '全部组件预览',
         id: '9bfe52845ec328bbcab94d9565a67495',
-        path: '/component/componentPreview/AllPreview',
+        path: '/component/componentPreview/preview',
       }
     ]
   },

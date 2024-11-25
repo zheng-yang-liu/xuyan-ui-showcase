@@ -11,7 +11,7 @@ const menuItems = [
       {
         title:"安装/使用",
         id:"7ce762e945f575547cea05c39291fc47",
-        path:"/Utils/installOrUse"
+        path:"/Utils/utilsInstallOrUse"
       }
     ]
   },
