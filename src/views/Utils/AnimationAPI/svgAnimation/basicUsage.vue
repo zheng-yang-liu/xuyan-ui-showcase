@@ -22,7 +22,7 @@ const show = () => {
 </script>
 
 <style scoped lang="scss">
-@import"yanyan-ui/assets/style/mixin.scss";
+@use"yanyan-ui/assets/style/mixin.scss" as *;
 .basicBox{
   @include display-flex(center);
   //设置其中第一个div元素的样式

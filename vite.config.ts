@@ -59,7 +59,8 @@ export default ({command, mode}: ConfigEnv) => {
     css:{
       preprocessorOptions:{
         scss: {
-          additionalData: `@import "@/assets/style/main.scss";`
+          api:"modern-compiler",
+          additionalData: `@use "@/assets/style/_globals.scss" as *;`
         }
       }
     },

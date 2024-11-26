@@ -7,5 +7,5 @@
 </style>
 
 <style lang="scss">
-@import "@/assets/style/base";
+@use "@/assets/style/base" as *;
 </style>
